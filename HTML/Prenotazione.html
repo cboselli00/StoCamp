@@ -2,10 +2,12 @@
 <html>
 <head>
 <title>Prenota</title>
+<h1>EFFETTUA UNA PRENOTAZIONE</h1>
 <link rel="stylesheet" type="text/css" href="Prenota.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
+<body id="body">
+    <br><br><br>
     <div class="row">
         <div class="col-sm-4" id="selezione">
             <fieldset>
@@ -21,11 +23,22 @@
         <div class="col-sm-4" id="orario">
             <h3>Seleziona orario</h3>
             <select name="orario">
-                <option>15:00</option>
-                <option>17:00</option>
-                <option>20:30</option>
-                </select>
+                <option>Seleziona fascia oraria</option>
+                <option>15:00-16:00</option>
+                <option>17:00-18:00</option>
+                <option>20:30-21:30</option>
+            </select>
+        </div>
+      </div> 
+      <br><br>
+      <div class="row">
+        <div class="col-sm-4" id="squadra">
+            <label for="nsquadra">Nome Squadra:</label><br>
+            <input type="text" name="nsquadra"><br><br>
         </div>
       </div> 
 </body>
+<footer id="footer">
+    <input type="submit" value="Prenota">
+</footer>
 </html>
