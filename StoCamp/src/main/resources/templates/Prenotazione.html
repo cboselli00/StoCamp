@@ -19,7 +19,9 @@
                 <input type="checkbox" name="terzo" value="terzo"/> Campo 3
                 </fieldset>
         </div>
-        <div class="col-sm-4" id="data"><h3>Seleziona data</h3><input type="date"></div>
+        <div class="col-sm-4" id="data"><h3>Seleziona data</h3>
+        <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}">
+        <input type="date" th:field="*{data}"></div>
         <div class="col-sm-4" id="orario">
             <h3>Seleziona orario</h3>
             <select name="orario">
@@ -34,12 +36,13 @@
       <div class="row">
         <div class="col-sm-4" id="squadra">
             <label for="nsquadra">Nome Squadra:</label><br>
-            <input type="text" name="nsquadra"><br><br>
+            <input type="text" name="nsquadra" th:field="*{nomeSquadra}"><br><br>
         </div>
       </div> 
 </body>
 <footer id="footer">
     <input type="submit" value="Prenota">
     <input type="button" id="bottone" onclick="document.location.href='Home.html';" value="Home">
+    </form>
 </footer>
 </html>
