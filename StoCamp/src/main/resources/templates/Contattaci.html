@@ -13,12 +13,16 @@
         <div class="col-sm-6">
             <label for="da">Da:</label><br>
             <input type="email" name="da" th:field="*{mittente}"><br>
+            <p th:if="${#fields.hasErrors('mittente')}" th:errors="*{mittente}"/>
             <label for="a">A:</label><br>
             <input type="email"  name="email" th:field="*{destinatario}"><br>
+            <p th:if="${#fields.hasErrors('destinatario')}" th:errors="*{destinatario}"/>
             <label for="oggetto">Oggetto:</label><br>
             <input type="text"  name="oggetto" th:field="*{oggetto}" ><br>
+            <p th:if="${#fields.hasErrors('oggetto')}" th:errors="*{oggetto}"/>
             <label for="messaggio">Messaggio:</label><br>
             <input type="text"  name="messaggio" size="60" maxlength="300" th:field="*{messaggio}"><br><br>
+            <p th:if="${#fields.hasErrors('messaggio')}" th:errors="*{messaggio}"/>
             <input type="submit" name="invia" value="Invia mail">
         </div>
         </form>
