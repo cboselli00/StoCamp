@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="css/Registrazione.css">
     </head>
     <body>
-       		<form method="post" th:action="@{Registrazione}" th:object="${registrazioneForm}">
+       		<form method="post" th:action="@{/Registrazione}" th:object="${registrazioneForm}">
             E-mail:<div class="a"><input type="text" id="txtemail" name="txtemail" value="" th:field="*{email}"></div><br>
             Username:<div class="b"><input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"></div><br>
             Password:<div class="c"><input type="password" id="txtpass" name="txtpass" value="" th:field="*{password}"></div><br>

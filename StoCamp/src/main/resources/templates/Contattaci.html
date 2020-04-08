@@ -9,17 +9,19 @@
 <body id="body">
     <br><br><br>
     <div class="row">
+    	<form method="post" th:action="@{/Contattaci}" th:object="${contattaciForm}">
         <div class="col-sm-6">
             <label for="da">Da:</label><br>
-            <input type="email" name="da" ><br>
+            <input type="email" name="da" th:field="*{mittente}"><br>
             <label for="a">A:</label><br>
-            <input type="email"  name="email" ><br>
+            <input type="email"  name="email" th:field="*{destinatario}"><br>
             <label for="oggetto">Oggetto:</label><br>
-            <input type="text"  name="oggetto" ><br>
+            <input type="text"  name="oggetto" th:field="*{oggetto}" ><br>
             <label for="messaggio">Messaggio:</label><br>
-            <input type="text"  name="messaggio" size="60" maxlength="300" ><br><br>
+            <input type="text"  name="messaggio" size="60" maxlength="300" th:field="*{messaggio}"><br><br>
             <input type="submit" name="invia" value="Invia mail">
         </div>
+        </form>
         <div class="col-sm-6">
             <a href="https://www.facebook.com/"><img src="images/facebook.jpg" width="60" height="60"></a>
             Facebook
