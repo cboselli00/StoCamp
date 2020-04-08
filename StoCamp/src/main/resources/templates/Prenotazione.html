@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prenota</title>
+<h1>EFFETTUA UNA PRENOTAZIONE</h1>
+<link rel="stylesheet" type="text/css" href="Prenota.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body id="body">
+    <br><br><br>
+    <div class="row">
+        <div class="col-sm-4" id="selezione">
+            <fieldset>
+                <legend>Selezione campo</legend><br>
+                <input type="checkbox" name="primo" value="primo"/> Campo 1
+                <br />
+                <input type="checkbox" name="secondo" value="secondo"/> Campo 2
+                <br />
+                <input type="checkbox" name="terzo" value="terzo"/> Campo 3
+                </fieldset>
+        </div>
+        <div class="col-sm-4" id="data"><h3>Seleziona data</h3><input type="date"></div>
+        <div class="col-sm-4" id="orario">
+            <h3>Seleziona orario</h3>
+            <select name="orario">
+                <option>Seleziona fascia oraria</option>
+                <option>15:00-16:00</option>
+                <option>17:00-18:00</option>
+                <option>20:30-21:30</option>
+            </select>
+        </div>
+      </div> 
+      <br><br>
+      <div class="row">
+        <div class="col-sm-4" id="squadra">
+            <label for="nsquadra">Nome Squadra:</label><br>
+            <input type="text" name="nsquadra"><br><br>
+        </div>
+      </div> 
+</body>
+<footer id="footer">
+    <input type="submit" value="Prenota">
+    <input type="button" id="bottone" onclick="document.location.href='Home.html';" value="Home">
+</footer>
+</html>
