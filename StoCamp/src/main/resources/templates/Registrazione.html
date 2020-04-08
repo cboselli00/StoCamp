@@ -6,12 +6,19 @@
     <body>
        		<form method="post" th:action="@{/Registrazione}" th:object="${registrazioneForm}">
             E-mail:<div class="a"><input type="text" id="txtemail" name="txtemail" value="" th:field="*{email}"></div><br>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
             Username:<div class="b"><input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"></div><br>
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"/>
             Password:<div class="c"><input type="password" id="txtpass" name="txtpass" value="" th:field="*{password}"></div><br>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
             Numero Telefonico:<div class="d"><input type="text" id="number" name="number" value="" th:field="*{numeroTelefonico}"></div><br>
+            <p th:if="${#fields.hasErrors('numeroTelefonico')}" th:errors="*{numeroTelefonico}"/>
             Nome:<div class="e"><input type="text" id="txtname" name="txtname" value="" th:field="*{nome}"></div><br>
+            <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"/>
             Cognome:<div class="f"><input type="text" id="txtcognome" name="txtcognome" value="" th:field="*{cognome}"></div><br>
+            <p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"/>
             Data di nascita:<div class="g"><input type="date" id="txtdata" name="txtdata" th:field="*{dataNascita}"></div><br>
+            <p th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}"/>
             <div class="h"><input type="submit" value="Registrati"></div>
             </form>
     </body>
