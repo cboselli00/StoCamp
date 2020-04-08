@@ -9,13 +9,16 @@
             <img src="images/profilo.jfif">
         </div>
         <div class="col-sm-4">
-            <p><b>username: </b> <br><input type="text" id="txtusername" name="txtusername" value=""></p>
-            <p><b>et√†: </b><br><input type="number" id="number" name="age" value=""></p>
-            <p><b>citt√† di residenza: </b><br><div class="a"><input type="text" id="txtname" name="txtname" value=""></p>
-            <p><b>indirizzo: </b><br><input type="text" id="txtname" name="txtname" value=""></p>
+        	
+        	<form method="post" th:action="@{/settingsaccount}" th:object="${settingsAccountForm}">
+				username: <input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"><br>			
+				et‡: <input type="number" id="number" name="age" value="" th:field="*{eta}"><br>
+				citt‡ di residenza:<input type="text" id="txtname" name="txtname" value="" th:field="*{citta_residenza}"><br>
+				indirizzo:<input type="text" id="txtname" name="txtname" value="" th:field="*{indirizzo}"><br>
         </div>
         <div class="buttons">
-            <button>Salva</button>
-            <button>Annulla</button>
+				<input type="submit" value="Salva">
+				<input type="submit" value="Annulla">
+			</form>
       </div>
 </html>
