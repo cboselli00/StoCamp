@@ -1,0 +1,58 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f0e68c;
+  }
+  
+  li {
+    float: left;
+    margin-right: 5%;
+  }
+  
+  li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  #cerca{
+      margin-top: 10px;
+      margin-right:0%;
+  }
+
+  #bottone{
+    margin-top: 10px;
+}
+#evento1{
+    border-style: solid;
+}
+
+#body{
+    background-color: #f0e68c;
+}
+
+#evento{
+    border-style: solid;
+}
+
+#mappa{
+    width: 100px;
+    height: 96px;
+}
+#squadra{
+    border-style: solid;
+}
+
+  
+  
+
+
+
+
+
+  
