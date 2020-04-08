@@ -4,15 +4,15 @@
         <link rel="stylesheet" type="text/css" href="static/Registrazione.css">
     </head>
     <body>
-        <form method="GET" action="NameServlet">
-            E-mail:<div class="a"><input type="text" id="txtemail" name="txtemail" value=""></div><br>
-            Username:<div class="b"><input type="text" id="txtusername" name="txtusername" value=""></div><br>
-            Password:<div class="c"><input type="password" id="txtpass" name="txtpass" value=""></div><br>
-            Numero Telefonico:<div class="d"><input type="text" id="number" name="number" value=""></div><br>
-            Nome:<div class="e"><input type="text" id="txtname" name="txtname" value=""></div><br>
-            Cognome:<div class="f"><input type="text" id="txtcognome" name="txtcognome" value=""></div><br>
-            Data di nascita:<div class="g"><input type="date" id="txtdata" name="txtdata"></div><br>
-            <div class="h"><input type="submit" value="Sign In"></div>
-        </form>
+       		<form method="post" th:action="@{Registrazione}" th:object="${registrazioneForm}">
+            E-mail:<div class="a"><input type="text" id="txtemail" name="txtemail" value="" th:field="*{email}"></div><br>
+            Username:<div class="b"><input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"></div><br>
+            Password:<div class="c"><input type="password" id="txtpass" name="txtpass" value="" th:field="*{password}"></div><br>
+            Numero Telefonico:<div class="d"><input type="text" id="number" name="number" value="" th:field="*{numeroTelefonico}"></div><br>
+            Nome:<div class="e"><input type="text" id="txtname" name="txtname" value="" th:field="*{nome}"></div><br>
+            Cognome:<div class="f"><input type="text" id="txtcognome" name="txtcognome" value="" th:field="*{cognome}"+></div><br>
+            Data di nascita:<div class="g"><input type="date" id="txtdata" name="txtdata" th:field="*{dataNascita}"></div><br>
+            <div class="h"><input type="submit" value="Registrati"></div>
+            </form>
     </body>
 </html>
