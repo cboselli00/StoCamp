@@ -17,7 +17,7 @@
             <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"/>
             Cognome:<div class="f"><input type="text" id="txtcognome" name="txtcognome" value="" th:field="*{cognome}"></div><br>
             <p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"/>
-            Data di nascita:<div class="g"><input type="date" id="txtdata" name="txtdata" th:field="*{dataNascita}"></div><br>
+            Data di nascita:<div class="g"><input type="text" id="txtdata" name="txtdata" th:field="*{dataNascita}"></div><br>
             <p th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}"/>
             <div class="h"><input type="submit" value="Registrati"></div>
             </form>
