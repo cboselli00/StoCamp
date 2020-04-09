@@ -11,7 +11,7 @@
             Password:<div class="b"><input type="password" id="txtpass" name="txtpass" value="" th:field="*{password}"></div><br>
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
             <div class="c"><input type="submit" value="Login"></div><br>
-            <div class="d"><a href="Registrazione.html" title="Registrazione">Nuovo Utente?</a></div>
+            <div class="d"><a href="/Registrazione" title="Registrazione">Nuovo Utente?</a></div>
             </form>
     </body>
 </html>

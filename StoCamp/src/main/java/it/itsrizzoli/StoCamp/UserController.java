@@ -22,5 +22,8 @@ public class UserController {
 		return "Home";
 	}
 	
-	
+	@GetMapping("/Registrazione")
+	public String registrazione(RegistrazioneForm registrazioneForm) {
+		return "Registrazione";
+	}
 }
