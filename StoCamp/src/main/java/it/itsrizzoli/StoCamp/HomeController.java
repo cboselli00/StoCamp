@@ -12,7 +12,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/Contattaci")
-	public String contattaci() {
+	public String contattaci(ContattaciForm contattaciForm) {
 		return "Contattaci";
 	}
 	
