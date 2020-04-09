@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
 	
 	@GetMapping("/login")
-	public String login( @Valid LoginForm loginForm) {
-		return "login";
+	public String login(LoginForm loginForm) {
+		return "Login";
 	}
 	
 	@PostMapping("/login")
 	public String postLogin(@Valid LoginForm loginForm, BindingResult results) {
 		if(results.hasErrors())
-			return "login";
+			return "Login";
 		return "Home";
 	}
 	

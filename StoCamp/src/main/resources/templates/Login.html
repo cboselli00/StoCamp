@@ -7,10 +7,10 @@
     <body>
     <form method="post" th:action="@{/login}" th:object="${loginForm}">
             Username:<div class="a"><input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"></div><br>
-            <p th:if="${#fields.hasErrors('username')}" th.errors="*{username}" />
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
             Password:<div class="b"><input type="password" id="txtpass" name="txtpass" value="" th:field="*{password}"></div><br>
-            <p th:if="${#fields.hasErrors('password')}" th.errors="*{password}" />
-            <div class="c"><a href="Home.html"><input type="submit" value="Login"></a></div><br>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+            <div class="c"><input type="submit" value="Login"></div><br>
             <div class="d"><a href="Registrazione.html" title="Registrazione">Nuovo Utente?</a></div>
             </form>
     </body>
