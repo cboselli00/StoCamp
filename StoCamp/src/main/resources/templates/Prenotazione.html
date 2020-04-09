@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-4" id="data"><h3>Seleziona data</h3>
         <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}">
-        <input type="date" th:field="*{data}">
+        <input type="text" th:field="*{data}">
         <p th:if="${#fields.hasErrors('data')}" th:errors="*{data}" /></div>
         <div class="col-sm-4" id="orario">
             <h3>Seleziona orario</h3>
