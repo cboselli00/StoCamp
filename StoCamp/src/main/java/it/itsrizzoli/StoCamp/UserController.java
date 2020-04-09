@@ -33,15 +33,17 @@ public class UserController {
 			return "Registrazione";
 		return "Home";
 	}
+	
 	@GetMapping("/Password_dimenticata")
 	public String passwordDimenticata(Password_dimenticataForm password_dimenticataForm) {
 		return "Password_dimenticata";
 	}
+	
 	@PostMapping("/Password_dimenticata")
 	public String postPassword(@Valid Password_dimenticataForm password_dimenticataForm, BindingResult results) {
 		if(results.hasErrors())
 			return "Password_dimenticata";
-		return "Login";
+		return "redirect:/login";
 	}
 	
 	
