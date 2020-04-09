@@ -17,7 +17,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/Prenotazione")
-	public String prenotazione() {
+	public String prenotazione(PrenotazioneForm prenotazioneForm) {
 		return "Prenotazione";
 	}
 	
