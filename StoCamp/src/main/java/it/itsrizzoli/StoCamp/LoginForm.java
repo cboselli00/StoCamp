@@ -3,8 +3,10 @@ package it.itsrizzoli.StoCamp;
 import javax.validation.constraints.Size;
 
 public class LoginForm {
-	@Size(min=5, max=10) String username;
-	@Size(min=5, max=15) String password;
+	@Size(min=5, max=10) 
+	String username;
+	@Size(min=5, max=15) 
+	String password;
 	
 	public String getUsername() {
 		return username;
