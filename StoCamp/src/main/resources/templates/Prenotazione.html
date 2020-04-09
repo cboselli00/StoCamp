@@ -36,15 +36,15 @@
       <br><br>
       <div class="row">
         <div class="col-sm-4" id="squadra">
-            <label for="nsquadra">Nome Squadra:</label><br>
-            <input type="text" name="nsquadra" th:field="*{nomeSquadra}">
-            <p th:if="${#fields.hasErrors('nomeSquadra')}" th:errors="*{nomeSquadra}" /><br><br>
+            <label>Nome Squadra:</label><br>
+            <input type="text"  th:field="*{prenotazioneForm.nomeSquadra}">
+            <p th:if="${#fields.hasErrors('prenotazioneForm.nomeSquadra')}" th:errors="*{prenotazioneForm.nomeSquadra}" /><br><br>
         </div>
       </div> 
 </body>
 <footer id="footer">
     <input type="submit" value="Prenota">
     <input type="button" id="bottone" onclick="document.location.href='/Home';" value="Home">
-    </form>
+   	</form>
 </footer>
 </html>
