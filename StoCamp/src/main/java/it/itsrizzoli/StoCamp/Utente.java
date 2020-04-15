@@ -8,7 +8,7 @@ public class Utente {
 	private String password;
 	private Date datanascita;
 	private String email;
-	private int numerotelefono;
+	private String numerotelefono;
 	private String nome;
 	private String cognome;
 	private String cittaresidenza;
@@ -39,10 +39,10 @@ public class Utente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getNumerotelefono() {
+	public String getNumerotelefono() {
 		return numerotelefono;
 	}
-	public void setNumerotelefono(int numerotelefono) {
+	public void setNumerotelefono(String numerotelefono) {
 		this.numerotelefono = numerotelefono;
 	}
 	public String getNome() {
