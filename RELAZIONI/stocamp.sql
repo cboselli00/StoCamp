@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Creato il: Apr 14, 2020 alle 14:28
+-- Creato il: Apr 15, 2020 alle 08:45
 -- Versione del server: 8.0.18
 -- Versione PHP: 7.3.12
 
@@ -45,47 +45,56 @@ CREATE TABLE IF NOT EXISTS `campo` (
 DROP TABLE IF EXISTS `evento`;
 CREATE TABLE IF NOT EXISTS `evento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nomesquadra2` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `nomesquadra1` varchar(30) NOT NULL,
-  `idprenotazione` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `nomesquadra1` (`nomesquadra1`),
-  KEY `idprenotazione` (`idprenotazione`)
+  `nomesquadra2` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `partecipazione`
+-- Struttura della tabella `gioca`
 --
 
-DROP TABLE IF EXISTS `partecipazione`;
-CREATE TABLE IF NOT EXISTS `partecipazione` (
-  `nomesquadra` varchar(30) NOT NULL,
-  `usernamecliente` varchar(15) NOT NULL,
-  PRIMARY KEY (`nomesquadra`,`usernamecliente`),
-  KEY `idsquadra` (`nomesquadra`),
-  KEY `usernamecliente` (`usernamecliente`)
+DROP TABLE IF EXISTS `gioca`;
+CREATE TABLE IF NOT EXISTS `gioca` (
+  `usernameutente` varchar(15) NOT NULL,
+  `idsquadra` int(11) NOT NULL,
+  PRIMARY KEY (`usernameutente`,`idsquadra`),
+  KEY `usernameutente` (`usernameutente`),
+  KEY `idsquadra` (`idsquadra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `prenotazione`
+-- Struttura della tabella `partecipa`
 --
 
-DROP TABLE IF EXISTS `prenotazione`;
-CREATE TABLE IF NOT EXISTS `prenotazione` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usernamecliente` varchar(15) NOT NULL,
-  `idcampo` int(11) NOT NULL,
+DROP TABLE IF EXISTS `partecipa`;
+CREATE TABLE IF NOT EXISTS `partecipa` (
+  `idevento` int(11) NOT NULL,
+  `idsquadra` int(11) NOT NULL,
+  PRIMARY KEY (`idevento`,`idsquadra`),
+  KEY `idevento` (`idevento`),
+  KEY `idsquadra` (`idsquadra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `prenota`
+--
+
+DROP TABLE IF EXISTS `prenota`;
+CREATE TABLE IF NOT EXISTS `prenota` (
   `data` date NOT NULL,
   `ora` time NOT NULL,
-  `nomesquadra` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `usernamecliente` (`usernamecliente`),
-  KEY `idcampo` (`idcampo`),
-  KEY `nomesquadra` (`nomesquadra`)
+  `usernameutente` varchar(15) NOT NULL,
+  `idcampo` int(11) NOT NULL,
+  PRIMARY KEY (`usernameutente`,`idcampo`),
+  KEY `usernameutente` (`usernameutente`),
+  KEY `idcampo` (`idcampo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -96,8 +105,9 @@ CREATE TABLE IF NOT EXISTS `prenotazione` (
 
 DROP TABLE IF EXISTS `squadra`;
 CREATE TABLE IF NOT EXISTS `squadra` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(30) NOT NULL,
-  PRIMARY KEY (`nome`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -109,12 +119,12 @@ CREATE TABLE IF NOT EXISTS `squadra` (
 DROP TABLE IF EXISTS `utente`;
 CREATE TABLE IF NOT EXISTS `utente` (
   `username` varchar(15) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `datanascita` date NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `numerotelefono` int(10) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `datadinascita` date NOT NULL,
-  `ntelefono` int(11) NOT NULL,
   `cittaresidenza` varchar(30) DEFAULT NULL,
   `indirizzo` varchar(30) DEFAULT NULL,
   `eta` int(11) DEFAULT NULL,
@@ -126,30 +136,25 @@ CREATE TABLE IF NOT EXISTS `utente` (
 --
 
 --
--- Limiti per la tabella `evento`
+-- Limiti per la tabella `gioca`
 --
-ALTER TABLE `evento`
-  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`idprenotazione`) REFERENCES `prenotazione` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `gioca`
+  ADD CONSTRAINT `gioca_ibfk_1` FOREIGN KEY (`idsquadra`) REFERENCES `squadra` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `gioca_ibfk_2` FOREIGN KEY (`usernameutente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `partecipazione`
+-- Limiti per la tabella `partecipa`
 --
-ALTER TABLE `partecipazione`
-  ADD CONSTRAINT `partecipazione_ibfk_2` FOREIGN KEY (`usernamecliente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `partecipazione_ibfk_3` FOREIGN KEY (`nomesquadra`) REFERENCES `squadra` (`nome`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `partecipa`
+  ADD CONSTRAINT `partecipa_ibfk_1` FOREIGN KEY (`idevento`) REFERENCES `evento` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `partecipa_ibfk_2` FOREIGN KEY (`idsquadra`) REFERENCES `squadra` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `prenotazione`
+-- Limiti per la tabella `prenota`
 --
-ALTER TABLE `prenotazione`
-  ADD CONSTRAINT `prenotazione_ibfk_1` FOREIGN KEY (`usernamecliente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `prenotazione_ibfk_2` FOREIGN KEY (`idcampo`) REFERENCES `campo` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
---
--- Limiti per la tabella `squadra`
---
-ALTER TABLE `squadra`
-  ADD CONSTRAINT `squadra_ibfk_1` FOREIGN KEY (`nome`) REFERENCES `evento` (`nomesquadra1`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `prenota`
+  ADD CONSTRAINT `prenota_ibfk_1` FOREIGN KEY (`usernameutente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `prenota_ibfk_2` FOREIGN KEY (`idcampo`) REFERENCES `campo` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
