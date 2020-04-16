@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Creato il: Apr 15, 2020 alle 10:42
+-- Creato il: Apr 16, 2020 alle 08:54
 -- Versione del server: 8.0.18
 -- Versione PHP: 7.3.12
 
@@ -34,7 +34,22 @@ CREATE TABLE IF NOT EXISTS `campo` (
   `nome` varchar(30) NOT NULL,
   `indirizzo` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dump dei dati per la tabella `campo`
+--
+
+INSERT INTO `campo` (`id`, `nome`, `indirizzo`) VALUES
+(1, 'Scirea', 'via arturito 4'),
+(2, 'Benitello', 'via dei fasci 3'),
+(3, 'Reale', 'via mozart 12'),
+(4, 'Rizzoli', 'via devastante 1'),
+(5, 'Nordico', 'via segreta 2'),
+(6, 'Tennis', 'via miseria 5'),
+(7, 'Fifa', 'via incredibile 3'),
+(8, 'Skating', 'via ruota 7'),
+(9, 'Coraggio', 'via d\'acqua 1');
 
 -- --------------------------------------------------------
 
@@ -122,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `password` varchar(20) NOT NULL,
   `datanascita` date NOT NULL,
   `email` varchar(30) NOT NULL,
-  `numerotelefono` int(10) NOT NULL,
+  `numerotelefono` varchar(15) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
   `cittaresidenza` varchar(30) DEFAULT NULL,
@@ -130,6 +145,15 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `eta` int(11) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dump dei dati per la tabella `utente`
+--
+
+INSERT INTO `utente` (`username`, `password`, `datanascita`, `email`, `numerotelefono`, `nome`, `cognome`, `cittaresidenza`, `indirizzo`, `eta`) VALUES
+('AleCriscu', 'admin', '2000-12-27', 'alecris122000@gmail.com', '3890138854', 'Alessandro', 'Criscuoli', 'Cinisello Balsamo', 'via benaco', 19),
+('Bose', 'admin', '2000-06-06', 'boselli@gmail.com', '3752058249', 'Christian', 'Boselli', 'Sesto San Giovanni', 'via devastante 2', 20),
+('Negri', 'admin', '2000-04-08', 'negri@gmail.com', '3671234567', 'Marco', 'Negri', 'Monza', 'via segreta 3', 20);
 
 --
 -- Limiti per le tabelle scaricate
