@@ -48,7 +48,6 @@ public class Utente {
 	@Max(100)
 	private int eta;
 	
-	
 	public Utente(
 			@Size(min = 4, max = 15, message = "Username deve esser tra 5 e 15 caratteri") @NotNull(message = "Username deve esser inserito") String username,
 			@Size(min = 5, max = 20, message = "Password deve esser tra 6 e 20 caratteri") @NotNull(message = "Password deve esser inserito") String password,
