@@ -3,6 +3,8 @@ package it.itsrizzoli.StoCamp;
 import java.sql.Date;
 
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -35,9 +37,17 @@ public class Utente {
 	@Size(min=3, max=30, message = "Cognome deve esser tra 4 e 30 caratteri")
     @NotNull(message = "Cognome deve esser inserito")
 	private String cognome;
+	
+	@Size(max=30, message = "Cittaresidenza deve esser tra 4 e 30 caratteri")
 	private String cittaresidenza;
+	
+	@Size(max=30, message = "Indirizzo deve esser tra 4 e 30 caratteri")
 	private String indirizzo;
+	
+	@Min(16)
+	@Max(100)
 	private int eta;
+	
 	
 	public Utente(
 			@Size(min = 4, max = 15, message = "Username deve esser tra 5 e 15 caratteri") @NotNull(message = "Username deve esser inserito") String username,
@@ -47,7 +57,9 @@ public class Utente {
 			@Size(min = 9, max = 10, message = "Nome deve esser 9 o 10 numeri") @NotNull(message = "Numero telefono deve esser inserito") String numerotelefono,
 			@Size(min = 3, max = 30, message = "Nome deve esser tra 4 e 30 caratteri") @NotNull(message = "Nome deve esser inserito") String nome,
 			@Size(min = 3, max = 30, message = "Cognome deve esser tra 4 e 30 caratteri") @NotNull(message = "Cognome deve esser inserito") String cognome,
-			String cittaresidenza, String indirizzo, int eta) {
+			@Size(max = 30, message = "Cittaresidenza deve esser tra 4 e 30 caratteri") String cittaresidenza,
+			@Size(max = 30, message = "Indirizzo deve esser tra 4 e 30 caratteri") String indirizzo,
+			@Min(16) @Max(100) int eta) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -60,7 +72,6 @@ public class Utente {
 		this.indirizzo = indirizzo;
 		this.eta = eta;
 	}
-	
 	public String getUsername() {
 		return username;
 	}

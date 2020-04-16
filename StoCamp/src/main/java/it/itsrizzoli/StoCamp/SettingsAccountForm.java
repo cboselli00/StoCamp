@@ -6,17 +6,17 @@ import javax.validation.constraints.Size;
 
 public class SettingsAccountForm {
 	
-	@Size(min = 5, max = 10)
+	@Size(min = 4, max = 15)
 	String username;
 	
 	@Min(16)
 	@Max(100)
 	Integer eta;
 	
-	@Size(min = 3, max = 30)
+	@Size(max = 30)
 	String citta_residenza;
 	
-	@Size(min = 5, max = 30)
+	@Size(max = 30)
 	String indirizzo;
 
 	public String getUsername() {
