@@ -1,10 +1,24 @@
 package it.itsrizzoli.StoCamp;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Squadra {
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	int id;
+	@Size(min=3, max=30, message = "Nome deve esser tra 5 e 30 caratteri")
+	@NotNull(message = "Nome deve esser inserito")
 	String nome;
 	
-	
+	public Squadra(int id,
+		@Size(min = 3, max = 30, message = "Nome deve esser tra 5 e 30 caratteri") @NotNull(message = "Nome deve esser inserito") String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
 	
 	public int getId() {
 		return id;
