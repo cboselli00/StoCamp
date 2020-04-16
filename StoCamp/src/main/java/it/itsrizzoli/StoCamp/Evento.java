@@ -13,12 +13,12 @@ public class Evento {
 	@Size(min=3, max=30, message = "Il nome della squadra deve esser tra 3 e 30 caratteri")
     @NotNull(message = "Il nome della squadra deve esser inserito")
 	String nomesquadra1;
-	@Size(min=3, max=30, message = "Il nome della squadra deve esser tra 3 e 30 caratteri")
+	@Size(max=30, message = "Il nome della squadra deve esser tra 3 e 30 caratteri")
 	String nomesquadra2;
 	
 	public Evento(int id,
 		@Size(min = 3, max = 30, message = "Il nome della squadra deve esser tra 3 e 30 caratteri") @NotNull(message = "Il nome della squadra deve esser inserito") String nomesquadra1,
-		@Size(min = 3, max = 30, message = "Il nome della squadra deve esser tra 3 e 30 caratteri") String nomesquadra2) {
+		@Size(max = 30, message = "Il nome della squadra deve esser tra 3 e 30 caratteri") String nomesquadra2) {
 		this.id = id;
 		this.nomesquadra1 = nomesquadra1;
 		this.nomesquadra2 = nomesquadra2;
