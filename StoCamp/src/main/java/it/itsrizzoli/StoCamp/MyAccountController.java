@@ -22,4 +22,9 @@ public class MyAccountController {
 			return "settingsaccount";
 		return "redirect:/myaccount";
 	}
+	
+	@GetMapping("/impostazioni")
+	public String impostazioni() {
+		return "impostazioni";
+	}
 }
