@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MyAccountController {
 	
-	@GetMapping("/Home")
-	public String Home() {
-		return "Home";
-	}
 	
 	@GetMapping("/settingsaccount")
 	public String modificaprofilo(SettingsAccountForm settingsAccountForm) {
