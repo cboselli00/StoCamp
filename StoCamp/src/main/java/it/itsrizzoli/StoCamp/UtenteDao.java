@@ -14,7 +14,7 @@ public interface UtenteDao extends CrudRepository<Utente,String> {
     List<Utente> findByNumerotelefono(String numerotelefono);
     List<Utente> findByNome(String nome);
     List<Utente> findByCognome(String cognome);
-    List<Utente> findByCittaresidenza(String cittaresidenza);
+    /*List<Utente> findByCittaresidenza(String cittaresidenza);
     List<Utente> findByIndirizzo(String indirizzo);
-    List<Utente> findByEta(int eta);
+    List<Utente> findByEta(int eta);*/
 }

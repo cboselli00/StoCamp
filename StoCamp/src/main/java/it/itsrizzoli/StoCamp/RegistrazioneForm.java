@@ -1,4 +1,4 @@
-package it.itsrizzoli.StoCamp;
+/*package it.itsrizzoli.StoCamp;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ public class RegistrazioneForm {
 	String nome;
 	@Size(min=3,max=10)
 	String cognome;
-	Date dataNascita;
+	String dataNascita;
 	
 	
 	
@@ -59,10 +59,10 @@ public class RegistrazioneForm {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public Date getDataNascita() {
+	public String getDataNascita() {
 		return dataNascita;
 	}
-	public void setDataNascita(Date dataNascita) {
+	public void setDataNascita(String dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 	
@@ -70,3 +70,4 @@ public class RegistrazioneForm {
 	
 
 }
+*/

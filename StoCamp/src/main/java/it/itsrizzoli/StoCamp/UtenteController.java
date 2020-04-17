@@ -42,12 +42,12 @@ public class UtenteController {
 	}
 	
 	@GetMapping("/Registrazione")
-	public String registrazione(RegistrazioneForm registrazioneForm) {
+	public String registrazione(Utente utente) {
 		return "Registrazione";
 	}
 	
 	@PostMapping("/Registrazione")
-	public String postRegistrazione(@Valid RegistrazioneForm registrazioneForm ,@Valid Utente utente, BindingResult results, Model model, HttpSession session) {
+	public String postRegistrazione(@Valid Utente utente, BindingResult results, Model model, HttpSession session) {
 		if(results.hasErrors()){
             return "Registrazione";
         }
@@ -57,7 +57,7 @@ public class UtenteController {
 
 
 		model.addAttribute("msg", "Informazioni salvate");
-        return "redirect:/Login";
+        return "redirect:/login";
 	}
 	
 	@GetMapping("/Password_dimenticata")
