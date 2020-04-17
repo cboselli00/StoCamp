@@ -14,15 +14,14 @@ public class MyAccountController {
 	}
 	
 	@GetMapping("/settingsaccount")
-	public String contattaci(SettingsAccountForm settingsAccountForm) {
+	public String modificaprofilo(SettingsAccountForm settingsAccountForm) {
 		return "settingsaccount";
 	}
 	
-	@PostMapping("/settingsaccount")
-	public String postLogin(@Valid SettingsAccountForm settingsAccountForm, BindingResult results) {
+	/*@PostMapping("/settingsaccount")
+	public String postModificaProfilo(@Valid SettingsAccountForm settingsAccountForm, BindingResult results) {
 		if(results.hasErrors())
 			return "settingsaccount";
 		return "myaccount";
-	}
-
+	}*/
 }
