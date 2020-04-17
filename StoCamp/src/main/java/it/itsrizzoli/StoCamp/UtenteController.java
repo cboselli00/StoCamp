@@ -47,7 +47,7 @@ public class UtenteController {
 	}
 	
 	@PostMapping("/Registrazione")
-	public String postRegistrazione(@Valid RegistrazioneForm registrazioneForm, @Valid Utente utente, BindingResult results, Model model, HttpSession session) {
+	public String postRegistrazione(@Valid RegistrazioneForm registrazioneForm ,@Valid Utente utente, BindingResult results, Model model, HttpSession session) {
 		if(results.hasErrors()){
             return "Registrazione";
         }

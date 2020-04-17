@@ -2,15 +2,19 @@ package it.itsrizzoli.StoCamp;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Table(name = "Utenti")
+@Entity
+@Table(name = "utente")
 public class Utente {
 	
+	@Id
 	@Size(min=4, max=15, message = "Username deve esser tra 5 e 15 caratteri")
     @NotNull(message = "Username deve esser inserito")
 	private String username;
