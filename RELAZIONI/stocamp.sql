@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Creato il: Apr 16, 2020 alle 08:54
+-- Creato il: Apr 17, 2020 alle 09:42
 -- Versione del server: 8.0.18
 -- Versione PHP: 7.3.12
 
@@ -73,11 +73,11 @@ CREATE TABLE IF NOT EXISTS `evento` (
 
 DROP TABLE IF EXISTS `gioca`;
 CREATE TABLE IF NOT EXISTS `gioca` (
-  `usernameutente` varchar(15) NOT NULL,
-  `idsquadra` int(11) NOT NULL,
-  PRIMARY KEY (`usernameutente`,`idsquadra`),
-  KEY `usernameutente` (`usernameutente`),
-  KEY `idsquadra` (`idsquadra`)
+  `username_utente` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_squadra` int(11) NOT NULL,
+  PRIMARY KEY (`username_utente`,`id_squadra`),
+  KEY `usernameutente` (`username_utente`),
+  KEY `idsquadra` (`id_squadra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -88,11 +88,11 @@ CREATE TABLE IF NOT EXISTS `gioca` (
 
 DROP TABLE IF EXISTS `partecipa`;
 CREATE TABLE IF NOT EXISTS `partecipa` (
-  `idevento` int(11) NOT NULL,
-  `idsquadra` int(11) NOT NULL,
-  PRIMARY KEY (`idevento`,`idsquadra`),
-  KEY `idevento` (`idevento`),
-  KEY `idsquadra` (`idsquadra`)
+  `id_evento` int(11) NOT NULL,
+  `id_squadra` int(11) NOT NULL,
+  PRIMARY KEY (`id_evento`,`id_squadra`),
+  KEY `idevento` (`id_evento`),
+  KEY `idsquadra` (`id_squadra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -105,11 +105,11 @@ DROP TABLE IF EXISTS `prenota`;
 CREATE TABLE IF NOT EXISTS `prenota` (
   `data` date NOT NULL,
   `ora` time NOT NULL,
-  `usernameutente` varchar(15) NOT NULL,
-  `idcampo` int(11) NOT NULL,
-  PRIMARY KEY (`usernameutente`,`idcampo`),
-  KEY `usernameutente` (`usernameutente`),
-  KEY `idcampo` (`idcampo`)
+  `username_utente` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_campo` int(11) NOT NULL,
+  PRIMARY KEY (`username_utente`,`id_campo`),
+  KEY `usernameutente` (`username_utente`),
+  KEY `idcampo` (`id_campo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -163,22 +163,22 @@ INSERT INTO `utente` (`username`, `password`, `datanascita`, `email`, `numerotel
 -- Limiti per la tabella `gioca`
 --
 ALTER TABLE `gioca`
-  ADD CONSTRAINT `gioca_ibfk_1` FOREIGN KEY (`idsquadra`) REFERENCES `squadra` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `gioca_ibfk_2` FOREIGN KEY (`usernameutente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `gioca_ibfk_1` FOREIGN KEY (`id_squadra`) REFERENCES `squadra` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `gioca_ibfk_2` FOREIGN KEY (`username_utente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `partecipa`
 --
 ALTER TABLE `partecipa`
-  ADD CONSTRAINT `partecipa_ibfk_1` FOREIGN KEY (`idevento`) REFERENCES `evento` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `partecipa_ibfk_2` FOREIGN KEY (`idsquadra`) REFERENCES `squadra` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `partecipa_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `partecipa_ibfk_2` FOREIGN KEY (`id_squadra`) REFERENCES `squadra` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `prenota`
 --
 ALTER TABLE `prenota`
-  ADD CONSTRAINT `prenota_ibfk_1` FOREIGN KEY (`usernameutente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `prenota_ibfk_2` FOREIGN KEY (`idcampo`) REFERENCES `campo` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `prenota_ibfk_1` FOREIGN KEY (`username_utente`) REFERENCES `utente` (`username`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `prenota_ibfk_2` FOREIGN KEY (`id_campo`) REFERENCES `campo` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
