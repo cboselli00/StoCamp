@@ -43,15 +43,12 @@ public class Utente {
     @NotNull(message = "Cognome deve esser inserito")
 	private String cognome;
 	
-	@Transient
 	@Size(max=30, message = "Cittaresidenza deve esser tra 4 e 30 caratteri")
 	private String cittaresidenza;
 	
-	@Transient
 	@Size(max=30, message = "Indirizzo deve esser tra 4 e 30 caratteri")
 	private String indirizzo;
 	
-	@Transient
 	@Min(16)
 	@Max(100)
 	private int eta;
