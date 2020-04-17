@@ -19,7 +19,7 @@ public class UserController {
 	public String postLogin(@Valid LoginForm loginForm, BindingResult results) {
 		if(results.hasErrors())
 			return "Login";
-		return "Home";
+		return "redirect:/Home";
 	}
 	
 	@GetMapping("/Registrazione")
@@ -31,7 +31,7 @@ public class UserController {
 	public String postRegistrazione(@Valid RegistrazioneForm registrazioneForm, BindingResult results) {
 		if(results.hasErrors())
 			return "Registrazione";
-		return "Home";
+		return "redirect:/Home";
 	}
 	
 	@GetMapping("/Password_dimenticata")

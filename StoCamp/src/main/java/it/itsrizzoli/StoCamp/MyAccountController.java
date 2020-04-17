@@ -16,10 +16,10 @@ public class MyAccountController {
 		return "settingsaccount";
 	}
 	
-	/*@PostMapping("/settingsaccount")
+	@PostMapping("/settingsaccount")
 	public String postModificaProfilo(@Valid SettingsAccountForm settingsAccountForm, BindingResult results) {
 		if(results.hasErrors())
 			return "settingsaccount";
-		return "myaccount";
-	}*/
+		return "redirect:/myaccount";
+	}
 }
