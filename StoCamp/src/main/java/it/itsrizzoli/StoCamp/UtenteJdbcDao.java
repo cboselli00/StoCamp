@@ -31,4 +31,24 @@ public class UtenteJdbcDao {
                         )
         );
     }
+	
+	public List<Utente> trovautente(String username) {
+        return jdbcTemplate.query(
+                "select * from utente where username = ?",
+                new Object[]{username},
+                (rs, rowNum) ->
+                        new Utente(
+                                rs.getString("username"),
+                                rs.getString("password"),
+                                rs.getDate("datanascita"),
+                                rs.getString("email"),
+                                rs.getString("numerotelefono"),
+                                rs.getString("nome"),
+                                rs.getString("cognome"),
+                                rs.getString("cittaresidenza"),
+                                rs.getString("indirizzo"),
+                                rs.getInt("eta")
+                        )
+        );
+    }
 }

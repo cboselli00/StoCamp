@@ -66,10 +66,20 @@ public class UtenteController {
 	}
 	
 	@PostMapping("/Password_dimenticata")
-	public String postPassword(@Valid Password_dimenticataForm password_dimenticataForm, BindingResult results) {
-		if(results.hasErrors())
-			return "Password_dimenticata";
-		return "redirect:/login";
+	public String postPassword(@Valid Password_dimenticataForm password_dimenticataForm, @RequestParam("username") String username, HttpSession session) {
+		List<Utente> trovaUtente = userJdbcRepository.trovautente(username);
+		
+		if(trovaUtente.size() == 0)
+			return "redirect:/Password_dimenticata";
+		else {
+			session.setAttribute("utenteTrovato", trovaUtente.get(0));
+			return "/cambiapassword";
+		}
+	}
+	
+	@GetMapping("/cambiapassword")
+	public String CambiaPassword(CambiaPasswordForm cambiaPasswordForm) {
+		return "CambiaPassword";
 	}
 	
 	

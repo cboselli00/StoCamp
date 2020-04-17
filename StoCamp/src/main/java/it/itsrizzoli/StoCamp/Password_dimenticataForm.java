@@ -3,14 +3,14 @@ package it.itsrizzoli.StoCamp;
 import javax.validation.constraints.Size;
 
 public class Password_dimenticataForm {
-	@Size(min=20, max=50) String email;
+	@Size(min=4, max=15) String username;
 
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	
