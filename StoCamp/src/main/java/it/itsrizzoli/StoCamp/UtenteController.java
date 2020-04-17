@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
 public class UtenteController {
+	@Autowired
+	private UtenteDao userRepository;
 	
 	@Autowired
     UtenteJdbcDao userJdbcRepository;
@@ -29,6 +32,7 @@ public class UtenteController {
 		List<Utente> listaUtenti = userJdbcRepository.login(username, password);
 		
 		if(listaUtenti.size() == 0)
+			
 			return "redirect:/login";
 		else {
 			session.setAttribute("loggedUser", listaUtenti.get(0));
@@ -43,10 +47,17 @@ public class UtenteController {
 	}
 	
 	@PostMapping("/Registrazione")
-	public String postRegistrazione(@Valid RegistrazioneForm registrazioneForm, BindingResult results) {
-		if(results.hasErrors())
-			return "Registrazione";
-		return "redirect:/Home";
+	public String postRegistrazione(@Valid RegistrazioneForm registrazioneForm, @Valid Utente utente, BindingResult results, Model model, HttpSession session) {
+		if(results.hasErrors()){
+            return "Registrazione";
+        }
+
+		userRepository.save(utente);
+		session.setAttribute("loggedUser", utente);
+
+
+		model.addAttribute("msg", "Informazioni salvate");
+        return "redirect:/Login";
 	}
 	
 	@GetMapping("/Password_dimenticata")
