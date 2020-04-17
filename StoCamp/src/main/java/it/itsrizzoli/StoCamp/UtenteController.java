@@ -73,10 +73,10 @@ public class UtenteController {
 			return "redirect:/Password_dimenticata";
 		else {
 			session.setAttribute("utenteTrovato", trovaUtente.get(0));
-			return "/cambiapassword";
+			return "redirect:/cambiapassword";
 		}
 	}
-	
+		
 	@GetMapping("/cambiapassword")
 	public String CambiaPassword(CambiaPasswordForm cambiaPasswordForm) {
 		return "CambiaPassword";
