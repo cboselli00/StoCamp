@@ -1,5 +1,7 @@
 package it.itsrizzoli.StoCamp;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -15,19 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class MyAccountController {
 	@Autowired
 	private UtenteDao userRepository;
+	
+	
 	@GetMapping("/settingsaccount")
 	public String modificaprofilo(SettingsAccountForm settingsAccountForm) {
-		
-	/*	ModelAndView mav = new ModelAndView();
-		
-		if (u != null) {
-			mav.setViewName("settingsccount");
-			mav.addObject("utente", u);
-		}
-		else {
-			mav.setViewName("redirect:/login");			
-		}    */
-		
 		return "settingsaccount";
 	}
 	
@@ -38,12 +31,13 @@ public class MyAccountController {
 			@RequestParam("indirizzo") String indirizzo) {
 		
 		Utente u = (Utente)session.getAttribute("loggedUser");
+		userRepository.delete(u);
 		u.setUsername(username);
 		u.setEta(eta);
 		u.setCittaresidenza(cittaresidenza);
 		u.setIndirizzo(indirizzo);
-	userRepository.save(u);
-	return "redirect:/myaccount";
+		userRepository.save(u);
+		return "redirect:/myaccount";
 	}
 	
 	@GetMapping("/impostazioni")

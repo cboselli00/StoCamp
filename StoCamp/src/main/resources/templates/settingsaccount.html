@@ -11,17 +11,17 @@
         <div class="col-sm-4">
         	
         	<form method="post" th:action="@{/settingsaccount}" th:object="${settingsAccountForm}">
-				username: <input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"><br>				
+				Username: <input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"><br>				
 				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />		
-				età: <input type="number" id="number" name="age" value="" th:field="*{eta}"><br>
+				Eta': <input type="number" id="number" name="age" value="" th:field="*{eta}"><br>
 				<p th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}" />
-				città di residenza:<input type="text" id="txtname" name="txtname" value="" th:field="*{citta_residenza}"><br>
+				Citta' di residenza:<input type="text" id="txtname" name="txtname" value="" th:field="*{citta_residenza}"><br>
 				<p th:if="${#fields.hasErrors('citta_residenza')}" th:errors="*{citta_residenza}" />
-				indirizzo:<input type="text" id="txtname" name="txtname" value="" th:field="*{indirizzo}"><br>
+				Indirizzo:<input type="text" id="txtname" name="txtname" value="" th:field="*{indirizzo}"><br>
 				<p th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}" />
         </div>
         <div class="buttons">
-				<input type="submit" value="Salva">
+				<input type="submit" onclick="none()" value="Salva">
 				<input type="submit" value="Annulla">
 			</form>
       </div>
