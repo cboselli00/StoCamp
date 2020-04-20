@@ -32,10 +32,10 @@ public class UtenteJdbcDao {
         );
     }
 	
-	public List<Utente> trovautente(String username, String password) {
+	public List<Utente> trovautente(String username,String password) {
         return jdbcTemplate.query(
-                "update utente set password = " + password + " where username = ?",
-                new Object[]{username},
+                "update utente set password = ?  where username = ?",
+                new Object[]{username,password},
                 (rs, rowNum) ->
                         new Utente(
                                 rs.getString("username"),
@@ -51,4 +51,5 @@ public class UtenteJdbcDao {
                         )
         );
     }
+	
 }

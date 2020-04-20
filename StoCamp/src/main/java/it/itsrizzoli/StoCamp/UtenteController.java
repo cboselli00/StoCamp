@@ -67,7 +67,7 @@ public class UtenteController {
 	
 	@PostMapping("/Password_dimenticata")
 	public String postPassword(@Valid Password_dimenticataForm password_dimenticataForm, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
-		List<Utente> trovaUtente = userJdbcRepository.trovautente(username, password);
+		List<Utente> trovaUtente = userJdbcRepository.trovautente(username,password);
 		
 		if(trovaUtente.size() == 0)
 			return "redirect:/Password_dimenticata";
