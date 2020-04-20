@@ -31,6 +31,16 @@ public class UtenteJdbcDao {
                         )
         );
     }
-	
-	
+	public List<Object> datiCampo(){
+		 return jdbcTemplate.query(
+	                "select * from campo",
+	                new Campo[]{},
+	                (rs, rowNum) ->
+	                        new Campo(
+	                                rs.getInt("id"),
+	                                rs.getString("nome"),
+	                                rs.getString("indirizzo")     
+	                        )
+	        );
+	}
 }

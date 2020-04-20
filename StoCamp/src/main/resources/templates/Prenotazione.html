@@ -13,14 +13,13 @@
     <br><br><br>
     <div class="row">
         <div class="col-sm-4" id="selezione">
-            <fieldset>
-                <legend>Selezione campo</legend><br>
-                <input type="checkbox" name="primo" value="primo"/> Campo 1
-                <br />
-                <input type="checkbox" name="secondo" value="secondo"/> Campo 2
-                <br />
-                <input type="checkbox" name="terzo" value="terzo"/> Campo 3
-                </fieldset>
+        <h3>Seleziona campo</h3>
+            <select name="campo">
+                <option>Seleziona campo da gioco</option>
+                <option>Campo1</option>
+                <option>Campo2</option>
+                <option>Campo3</option>
+            </select>
         </div>
         <div class="col-sm-4" id="data"><h3>Seleziona data</h3>
         <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}">

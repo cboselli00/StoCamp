@@ -5,11 +5,10 @@ import java.util.Date;
 import javax.validation.constraints.Size;
 
 public class PrenotazioneForm {
-	
-	@Size(min=3,max=100)
-	String nomeSquadra;
 	Date data;
+	String nomeSquadra;
 	
+
 	public String getNomeSquadra() {
 		return nomeSquadra;
 	}
