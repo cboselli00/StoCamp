@@ -76,11 +76,5 @@ public class UtenteController {
 			return "redirect:/cambiapassword";
 		}
 	}
-		
-	@GetMapping("/cambiapassword")
-	public String CambiaPassword(CambiaPasswordForm cambiaPasswordForm) {
-		return "CambiaPassword";
-	}
-	
 	
 }
