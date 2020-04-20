@@ -36,7 +36,6 @@ public class UtenteController {
 			return "redirect:/login";
 		else {
 			session.setAttribute("loggedUser", listaUtenti.get(0));
-
 	        return "redirect:/Home";
 		}
 	}

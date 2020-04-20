@@ -18,10 +18,10 @@
         <img src="profilo.jfif">
     </div>
     <div class="col-sm-4">
-        <p><b>username: </b> aleCriscu</p>
-        <p><b>età: </b> 19 anni</p>
-        <p><b>città di residenza: </b> cinisello</p>
-        <p><b>indirizzo: </b> via di casa, 2</p>
+        <p><b>Username: </b><label th:text="*{utente.username}"/></p>
+        <p><b>Eta': </b><label th:text="*{utente.eta}"/></p>
+        <p><b>Citta' di residenza: </b><label th:text="*{utente.cittaresidenza}"/></p>
+        <p><b>Indirizzo: </b><label th:text="*{utente.indirizzo}"/></p>
     </div>
     <div class="col-sm-4">
         <button><a href="/settingsaccount">Modifica Profilo</a></button>
