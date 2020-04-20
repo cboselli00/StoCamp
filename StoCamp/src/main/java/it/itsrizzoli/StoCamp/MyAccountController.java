@@ -41,7 +41,17 @@ public class MyAccountController {
 	}
 	
 	@GetMapping("/impostazioni")
-	public String impostazioni() {
-		return "impostazioni";
+	public ModelAndView impostazioni(HttpSession session) {
+		Utente u = (Utente)session.getAttribute("loggedUser");
+		
+		ModelAndView mav = new ModelAndView();
+
+		if (u != null) {
+			mav.setViewName("impostazioni");
+		}
+		else {
+			mav.setViewName("redirect:/login");			
+		}
+		return mav;
 	}
 }
