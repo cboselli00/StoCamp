@@ -3,6 +3,7 @@ package it.itsrizzoli.StoCamp;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,9 @@ import it.itsrizzoli.StoCamp.UtenteController;
 
 @Controller
 public class HomeController {
+	
+	/*@Autowired
+	private CampoDao campoRepository;*/
 	
 	@GetMapping("/Notifiche")
 	public ModelAndView notifiche(HttpSession session) {
@@ -60,7 +64,7 @@ public class HomeController {
 		return mav;
 	}
 	
-	@PostMapping("/Prenotazione")
+	/*@PostMapping("/Prenotazione")
 	public String postPrenotazione(@Valid PrenotazioneForm prenotazioneForm,BindingResult results, Model model, HttpSession session) {
 		if(results.hasErrors()){
             return "Prenotazione";
@@ -70,8 +74,8 @@ public class HomeController {
 		
 		
 		
-	}
-	
+		return "Home";
+	}*/
 	
 	@GetMapping("/myaccount")
 	public ModelAndView profilo(HttpSession session) {
