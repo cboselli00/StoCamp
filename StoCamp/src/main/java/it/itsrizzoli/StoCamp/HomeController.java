@@ -76,8 +76,8 @@ public class HomeController {
 		double orainizio = (double)session.getAttribute("orainizio");
 		double orafine = (double)session.getAttribute("orafine");
 		
-		prenotazioneForm.setUtente(u);
-		prenotazioneForm.setCampo(c);
+		//prenotazioneForm.setUtente(u);
+		//prenotazioneForm.setCampo(c);
 		prenotazioneForm.setData(new Date());
 		prenotazioneForm.setOrainizio(orainizio);
 		prenotazioneForm.setOrafine(orafine);

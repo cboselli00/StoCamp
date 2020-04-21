@@ -2,11 +2,14 @@ package it.itsrizzoli.StoCamp;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name="prenota")
 public class PrenotazioneForm {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -14,31 +17,25 @@ public class PrenotazioneForm {
 	Date data;
 //	String nomeSquadra;
 //	String username_utente;
-	Utente utente;
-	Campo campo;
+	//Utente utente;
+	//Campo campo;
 	double orainizio;
 	double orafine;
 	
 	
 
-/*	public String getNomeSquadra() {
-		return nomeSquadra;
-	}
-	public void setNomeSquadra(String nomeSquadra) {
-		this.nomeSquadra = nomeSquadra;
-	}*/
 	public Date getData() {
 		return data;
 	}
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public Utente getUtente() {
+	/*public Utente getUtente() {
 		return utente;
 	}
 	public void setUtente(Utente utente) {
 		this.utente = utente;
-	}
+	}*/
 	public double getOrainizio() {
 		return orainizio;
 	}
@@ -57,13 +54,13 @@ public class PrenotazioneForm {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Campo getCampo() {
+	/*public Campo getCampo() {
 		return campo;
 	}
 	public void setCampo(Campo campo) {
 		this.campo = campo;
 	}
-	
+	*/
 	
 	
 	
