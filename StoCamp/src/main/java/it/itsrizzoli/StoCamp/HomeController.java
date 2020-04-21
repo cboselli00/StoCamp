@@ -1,5 +1,7 @@
 package it.itsrizzoli.StoCamp;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -18,9 +20,6 @@ public class HomeController {
 	
 	@Autowired
 	private PrenotaDao prenotaRepository;
-	
-	/*@Autowired
-	private CampoDao campoRepository;*/
 	
 	@GetMapping("/Notifiche")
 	public ModelAndView notifiche(HttpSession session) {
@@ -73,9 +72,15 @@ public class HomeController {
             return "Prenotazione";
         }
 		Utente u = (Utente)session.getAttribute("loggedUser");
+		Campo c = (Campo)session.getAttribute("campo");
+		double orainizio = (double)session.getAttribute("orainizio");
+		double orafine = (double)session.getAttribute("orafine");
 		
 		prenotazioneForm.setUtente(u);
-		prenotazioneForm.setCampo();
+		prenotazioneForm.setCampo(c);
+		prenotazioneForm.setData(new Date());
+		prenotazioneForm.setOrainizio(orainizio);
+		prenotazioneForm.setOrafine(orafine);
 		prenotaRepository.save(prenotazioneForm);
 		
 		return "redirect:/Home";
