@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Creazione squadra</title>
+<link rel="stylesheet" type="text/css" href="css/CreaSquadra.css">
+</head>
+<body>
+<h1>CREA SQUADRA</h1>
+ 		<form id="creasquadra" method="post" th:action="@{/CreaSquadra}"  th:object="${creaSquadraForm}">
+            Nome squadra:<input type="text" name="nomesquadra" th:field="*{nome}"><br><br>
+             <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"/>
+            Partecipante:<input type="text" name="partecipante" th:field="*{partecipante1}"><br><br>
+             <p th:if="${#fields.hasErrors('partecipante1')}" th:errors="*{partecipante1}"/>
+            Partecipante:<input type="text" name="partecipante" th:field="*{partecipante2}"><br><br>
+            <p th:if="${#fields.hasErrors('partecipante2')}" th:errors="*{partecipante2}"/>
+            Partecipante:<input type="text" name="partecipante" th:field="*{partecipante3}"><br><br>
+            <p th:if="${#fields.hasErrors('partecipante3')}" th:errors="*{partecipante3}"/>
+            Partecipante:<input type="text" name="partecipante" th:field="*{partecipante4}"><br><br>
+            <p th:if="${#fields.hasErrors('partecipante4')}" th:errors="*{partecipante4}"/>
+			<button>Crea Squadra</button>
+        </form>
+</body>

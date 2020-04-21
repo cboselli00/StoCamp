@@ -17,6 +17,8 @@ import it.itsrizzoli.StoCamp.UtenteController;
 
 @Controller
 public class HomeController {
+	@Autowired
+	private SquadraDao squadraRepository;
 	
 	/*@Autowired
 	private PrenotaDao prenotaRepository;
@@ -101,4 +103,31 @@ public class HomeController {
 		}
 		return mav;
 	}
+	
+	@GetMapping("/CreaSquadra")
+	public ModelAndView creasquadra(HttpSession session) {
+		Utente u = (Utente)session.getAttribute("loggedUser");
+		
+		ModelAndView mav = new ModelAndView();
+
+		if (u != null) {
+			mav.setViewName("CreaSquadra");
+		}
+		else {
+			mav.setViewName("redirect:/login");			
+		}
+		return mav;
+	}
+	
+	@PostMapping("/CreaSquadra")
+	public String creasquadra(@Valid CreaSquadraForm creaSquadraForm, BindingResult results) {
+		if(results.hasErrors()){
+            return "CreaSquadra";
+        }
+		Squadra s = new Squadra();
+		s.setNome(creaSquadraForm.getNome());
+		squadraRepository.save(s);
+		
+		return "redirect:/Home";	
+	}	
 }

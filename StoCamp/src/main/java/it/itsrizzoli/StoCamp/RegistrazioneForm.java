@@ -1,4 +1,4 @@
-/*package it.itsrizzoli.StoCamp;
+package it.itsrizzoli.StoCamp;
 
 import java.util.Date;
 
@@ -70,4 +70,3 @@ public class RegistrazioneForm {
 	
 
 }
-*/
