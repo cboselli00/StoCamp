@@ -1,4 +1,4 @@
-/*package it.itsrizzoli.StoCamp;
+package it.itsrizzoli.StoCamp;
 
 import java.util.List;
 
@@ -10,4 +10,3 @@ public interface CampoDao extends CrudRepository<Campo,Integer> {
 	List<Campo> findByIndirizzo(String indirizzo);
 
 }
-*/
