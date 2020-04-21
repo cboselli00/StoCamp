@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Creato il: Apr 17, 2020 alle 09:42
+-- Creato il: Apr 21, 2020 alle 12:12
 -- Versione del server: 8.0.18
 -- Versione PHP: 7.3.12
 
@@ -103,11 +103,13 @@ CREATE TABLE IF NOT EXISTS `partecipa` (
 
 DROP TABLE IF EXISTS `prenota`;
 CREATE TABLE IF NOT EXISTS `prenota` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `data` date NOT NULL,
-  `ora` time NOT NULL,
+  `orainizio` double NOT NULL,
+  `orafine` double NOT NULL,
   `username_utente` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `id_campo` int(11) NOT NULL,
-  PRIMARY KEY (`username_utente`,`id_campo`),
+  PRIMARY KEY (`id`),
   KEY `usernameutente` (`username_utente`),
   KEY `idcampo` (`id_campo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -153,7 +155,11 @@ CREATE TABLE IF NOT EXISTS `utente` (
 INSERT INTO `utente` (`username`, `password`, `datanascita`, `email`, `numerotelefono`, `nome`, `cognome`, `cittaresidenza`, `indirizzo`, `eta`) VALUES
 ('AleCriscu', 'admin', '2000-12-27', 'alecris122000@gmail.com', '3890138854', 'Alessandro', 'Criscuoli', 'Cinisello Balsamo', 'via benaco', 19),
 ('Bose', 'admin', '2000-06-06', 'boselli@gmail.com', '3752058249', 'Christian', 'Boselli', 'Sesto San Giovanni', 'via devastante 2', 20),
-('Negri', 'admin', '2000-04-08', 'negri@gmail.com', '3671234567', 'Marco', 'Negri', 'Monza', 'via segreta 3', 20);
+('Boselli00', 'cippirimerlo1', '2000-06-26', 'bosellichristian@gmail.com', '3273168034', 'Christian', 'Boselli', 'Milano', 'Via Scheiwiller 12', 19),
+('Negri', 'admin', '2000-04-08', 'negri@gmail.com', '3671234567', 'Marco', 'Negri', 'Monza', 'via segreta 3', 20),
+('nonriposo', 'admin', '2002-06-10', 'lavoro@hotmail.it', '3316677821', 'Mark', 'Blacks', 'Lacchiarella', 'Via sperduta 20', 18),
+('persona1', 'password', '2000-04-14', 'caso@gmail.com', '3459988776', 'Persona', 'Qualsiasi', 'Napoli', 'Via napoli 45', 45),
+('pinco', 'pallino', '2000-04-17', 'pincopallino@gmail.com', '3273161681', 'Pinco', 'Pallino', 'Milano', 'Via da qui 12', 18);
 
 --
 -- Limiti per le tabelle scaricate
