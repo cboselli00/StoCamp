@@ -1,4 +1,4 @@
-package it.itsrizzoli.StoCamp;
+/*package it.itsrizzoli.StoCamp;
 
 import java.util.Date;
 import java.util.List;
@@ -11,3 +11,4 @@ public interface PrenotaDao extends CrudRepository<PrenotazioneForm,Integer>{
 //	List<PrenotazioneForm> findByOrainizio(double orainizio);
 //	List<PrenotazioneForm> findByOrafine(double orafine);
 }
+*/

@@ -25,10 +25,10 @@ public class PrenotazioneForm {
 	Integer id;
 	Date data;
 	
-	@OneToMany(mappedBy = "prenota",cascade = CascadeType.ALL)
+	/*@OneToMany(mappedBy = "prenota",cascade = CascadeType.ALL)
 	Utente utente;
 	@OneToMany(mappedBy = "prenota",cascade = CascadeType.ALL)
-	Campo campo;
+	Campo campo;*/
 	
 	double orainizio;
 	double orafine;
@@ -39,12 +39,12 @@ public class PrenotazioneForm {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public Utente getUtente() {
+	/*public Utente getUtente() {
 		return utente;
 	}
 	public void setUtente(Utente utente) {
 		this.utente = utente;
-	}
+	}*/
 	public double getOrainizio() {
 		return orainizio;
 	}
@@ -63,12 +63,12 @@ public class PrenotazioneForm {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Campo getCampo() {
+	/*public Campo getCampo() {
 		return campo;
 	}
 	public void setCampo(Campo campo) {
 		this.campo = campo;
-	}
+	}*/
 	
 	
 	
