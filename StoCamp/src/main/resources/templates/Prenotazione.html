@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-sm-4" id="selezione">
         <h3>Seleziona campo</h3>
-            <select name="campo">
+            <select name="campo" th:value="${prenotazioneForm.campo}">
                 <option>Seleziona campo da gioco</option>
                 <option>Campo1</option>
                 <option>Campo2</option>
@@ -27,23 +27,23 @@
         <p th:if="${#fields.hasErrors('data')}" th:errors="*{data}" /></div>
         <div class="col-sm-4" id="orario">
             <h3>Seleziona orario</h3>
-            <select name="orainizio">
+            <select name="orainizio" th:value="${prenotazioneForm.orainizio}">
                 <option>Seleziona orario inizio</option>
-                <option>8.00</option>
-                <option>9.00</option>
-                <option>10.00</option>
-                <option>11.00</option>
-                <option>12.00</option>
-                <option>13.00</option>
+                <option value="8.00">8.00</option>
+                <option value="9.00">9.00</option>
+                <option value="10.00">10.00</option>
+                <option value="11.00">11.00</option>
+                <option value="12.00">12.00</option>
+                <option value="13.00">13.00</option>
             </select>
-             <select name="orafine">
+             <select name="orafine" th:value="${prenotazioneForm.orafine}">
                 <option>Seleziona orario fine </option>
-                <option>9.00</option>
-                <option>10.00</option>
-                <option>11.00</option>
-                <option>12.00</option>
-                <option>13.00</option>
-                <option>14.00</option>
+                <option value="9.00">9.00</option>
+                <option value="10.00">10.00</option>
+                <option value="11.00">11.00</option>
+                <option value="12.00">12.00</option>
+                <option value="13.00">13.00</option>
+                <option value="14.00">14.00</option>
             </select>
         </div>
       </div> 

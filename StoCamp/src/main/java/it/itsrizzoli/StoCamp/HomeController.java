@@ -16,6 +16,9 @@ import it.itsrizzoli.StoCamp.UtenteController;
 @Controller
 public class HomeController {
 	
+	@Autowired
+	private PrenotaDao prenotaRepository;
+	
 	/*@Autowired
 	private CampoDao campoRepository;*/
 	
@@ -64,18 +67,19 @@ public class HomeController {
 		return mav;
 	}
 	
-	/*@PostMapping("/Prenotazione")
+	@PostMapping("/Prenotazione")
 	public String postPrenotazione(@Valid PrenotazioneForm prenotazioneForm,BindingResult results, Model model, HttpSession session) {
 		if(results.hasErrors()){
             return "Prenotazione";
         }
 		Utente u = (Utente)session.getAttribute("loggedUser");
 		
+		prenotazioneForm.setUtente(u);
+		prenotazioneForm.setCampo();
+		prenotaRepository.save(prenotazioneForm);
 		
-		
-		
-		return "Home";
-	}*/
+		return "redirect:/Home";
+	}
 	
 	@GetMapping("/myaccount")
 	public ModelAndView profilo(HttpSession session) {

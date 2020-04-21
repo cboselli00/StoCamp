@@ -8,31 +8,36 @@ import javax.persistence.Id;
 
 
 public class PrenotazioneForm {
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	Integer id;
 	Date data;
-	String nomeSquadra;
-	String username_utente;
+//	String nomeSquadra;
+//	String username_utente;
+	Utente utente;
+	Campo campo;
 	double orainizio;
 	double orafine;
 	
 	
 
-	public String getNomeSquadra() {
+/*	public String getNomeSquadra() {
 		return nomeSquadra;
 	}
 	public void setNomeSquadra(String nomeSquadra) {
 		this.nomeSquadra = nomeSquadra;
-	}
+	}*/
 	public Date getData() {
 		return data;
 	}
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public String getUsername_utente() {
-		return username_utente;
+	public Utente getUtente() {
+		return utente;
 	}
-	public void setUsername_utente(String username_utente) {
-		this.username_utente = username_utente;
+	public void setUtente(Utente utente) {
+		this.utente = utente;
 	}
 	public double getOrainizio() {
 		return orainizio;
@@ -46,6 +51,19 @@ public class PrenotazioneForm {
 	public void setOrafine(double orafine) {
 		this.orafine = orafine;
 	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Campo getCampo() {
+		return campo;
+	}
+	public void setCampo(Campo campo) {
+		this.campo = campo;
+	}
+	
 	
 	
 	
