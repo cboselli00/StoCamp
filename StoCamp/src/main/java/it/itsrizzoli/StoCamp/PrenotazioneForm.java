@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -34,10 +35,12 @@ public class PrenotazioneForm {
 	@JoinColumn
 	private Campo campo;
 	
+	/*@NotNull
+	int campo_id;*/
+	
 	
 	double orainizio;
 	double orafine;
-	
 	
 	public PrenotazioneForm() {
 		
@@ -67,7 +70,6 @@ public class PrenotazioneForm {
 		return campo;
 	}
 
-
 	public void setCampo(Campo campo) {
 		this.campo = campo;
 	}
@@ -85,6 +87,16 @@ public class PrenotazioneForm {
 	public void setOrafine(double orafine) {
 		this.orafine = orafine;
 	}
+
+
+	/*public int getCampo_id() {
+		return campo_id;
+	}
+
+
+	public void setCampo_id(int campo_id) {
+		this.campo_id = campo_id;
+	}*/
 	
 	
 	

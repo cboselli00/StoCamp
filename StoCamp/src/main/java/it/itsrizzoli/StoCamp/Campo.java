@@ -40,6 +40,15 @@ public class Campo {
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 	}
+	
+	
+
+
+	public Campo() {
+		
+	}
+
+
 
 
 	public String getNome() {

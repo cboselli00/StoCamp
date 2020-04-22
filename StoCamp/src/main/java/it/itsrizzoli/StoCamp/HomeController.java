@@ -93,10 +93,11 @@ public class HomeController {
             return "Prenotazione";
         }
 		Utente u = (Utente)session.getAttribute("loggedUser");
-		Campo c = (Campo)session.getAttribute("campo");
+		Campo c = prenotazioneForm.getCampo();
 		Date data = prenotazioneForm.data;
 		double orainizio = prenotazioneForm.orainizio;
 		double orafine = prenotazioneForm.orafine;
+		
 		
 		prenotazioneForm.setPartecipante(u);
 		prenotazioneForm.setCampo(c);

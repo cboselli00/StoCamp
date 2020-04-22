@@ -3,6 +3,8 @@ package it.itsrizzoli.StoCamp;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.data.repository.CrudRepository;
 
 public interface PrenotaDao extends CrudRepository<PrenotazioneForm,Integer>{
