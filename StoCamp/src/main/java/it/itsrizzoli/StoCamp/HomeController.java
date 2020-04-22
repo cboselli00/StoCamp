@@ -1,6 +1,6 @@
 package it.itsrizzoli.StoCamp;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,12 +17,15 @@ import it.itsrizzoli.StoCamp.UtenteController;
 
 @Controller
 public class HomeController {
-	@Autowired
-	private SquadraDao squadraRepository;
-	
 	/*@Autowired
+	private SquadraDao squadraRepository;*/
+	
+	@Autowired
 	private PrenotaDao prenotaRepository;
-	*/
+	
+	@Autowired
+	private CampoDao campoRepository;
+	
 	@GetMapping("/Notifiche")
 	public ModelAndView notifiche(HttpSession session) {
 		Utente u = (Utente)session.getAttribute("loggedUser");
@@ -68,25 +71,26 @@ public class HomeController {
 		return mav;
 	}
 	
-	/*@PostMapping("/Prenotazione")
+	@PostMapping("/Prenotazione")
 	public String postPrenotazione(@Valid PrenotazioneForm prenotazioneForm,BindingResult results, Model model, HttpSession session) {
 		if(results.hasErrors()){
             return "Prenotazione";
         }
 		Utente u = (Utente)session.getAttribute("loggedUser");
 		Campo c = (Campo)session.getAttribute("campo");
+		Date data = (Date)session.getAttribute("data");
 		double orainizio = (double)session.getAttribute("orainizio");
 		double orafine = (double)session.getAttribute("orafine");
 		
-		prenotazioneForm.setUtente(u);
+		prenotazioneForm.setPartecipante(u);
 		prenotazioneForm.setCampo(c);
-		prenotazioneForm.setData(new Date());
+		prenotazioneForm.setData(data);
 		prenotazioneForm.setOrainizio(orainizio);
 		prenotazioneForm.setOrafine(orafine);
 		prenotaRepository.save(prenotazioneForm);
 		
 		return "redirect:/Home";
-	}*/
+	}
 	
 	@GetMapping("/myaccount")
 	public ModelAndView profilo(HttpSession session) {
@@ -104,7 +108,7 @@ public class HomeController {
 		return mav;
 	}
 	
-	@GetMapping("/CreaSquadra")
+	/*@GetMapping("/CreaSquadra")
 	public ModelAndView creasquadra(HttpSession session) {
 		Utente u = (Utente)session.getAttribute("loggedUser");
 		
@@ -129,5 +133,5 @@ public class HomeController {
 		squadraRepository.save(s);
 		
 		return "redirect:/Home";	
-	}	
+	}	*/
 }

@@ -6,18 +6,21 @@
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <img src="images/profilo.jfif">
+            <img src="images/profilo.jpg">
         </div>
         <div class="col-sm-4">
         	
         	<form method="post" th:action="@{/settingsaccount}" th:object="${settingsAccountForm}">
-				Username: <input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"><br>				
+				Username:&nbsp; <input type="text" id="txtusername" name="txtusername" value="" th:field="*{username}"><br><br>			
 				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />		
-				Eta': <input type="number" id="number" name="age" value="" th:field="*{eta}"><br>
+				Eta':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="number" id="age" name="age" value="" th:field="*{eta}"><br><br>
 				<p th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}" />
-				Citta' di residenza:<input type="text" id="txtname" name="txtname" value="" th:field="*{citta_residenza}"><br>
+				Citta':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="text" id="txtname" name="txtname" value="" th:field="*{citta_residenza}"><br><br>
 				<p th:if="${#fields.hasErrors('citta_residenza')}" th:errors="*{citta_residenza}" />
-				Indirizzo:<input type="text" id="txtname" name="txtname" value="" th:field="*{indirizzo}"><br>
+				Indirizzo:&nbsp;&nbsp;&nbsp;
+				<input type="text" id="txtname" name="txtname" value="" th:field="*{indirizzo}"><br>
 				<p th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}" />
         </div>
         <div class="buttons">

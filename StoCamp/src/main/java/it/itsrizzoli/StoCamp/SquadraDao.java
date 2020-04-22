@@ -1,4 +1,4 @@
-package it.itsrizzoli.StoCamp;
+/*package it.itsrizzoli.StoCamp;
 
 import java.util.List;
 
@@ -8,4 +8,4 @@ public interface SquadraDao extends CrudRepository<Squadra,Integer>{
 	List<Squadra> findById(int id);
 	List<Squadra> findByNome(String nome);
 
-}
+}*/

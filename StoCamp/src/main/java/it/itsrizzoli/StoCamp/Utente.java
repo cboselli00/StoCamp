@@ -1,9 +1,14 @@
 package it.itsrizzoli.StoCamp;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Max;
@@ -53,6 +58,18 @@ public class Utente {
 	@Max(100)
 	private int eta;
 	
+	@OneToMany(mappedBy = "partecipante", cascade = CascadeType.ALL)
+	private Set<PrenotazioneForm> prenotazione = new HashSet<>();
+	
+
+	
+	@OneToOne
+	private Squadra squadra;
+	
+	
+	
+	
+
 	public Utente(
 			@Size(min = 4, max = 15, message = "Username deve esser tra 5 e 15 caratteri") @NotNull(message = "Username deve esser inserito") String username,
 			@Size(min = 5, max = 20, message = "Password deve esser tra 6 e 20 caratteri") @NotNull(message = "Password deve esser inserito") String password,
@@ -64,7 +81,6 @@ public class Utente {
 			@Size(max = 30, message = "Cittaresidenza deve esser tra 4 e 30 caratteri") String cittaresidenza,
 			@Size(max = 30, message = "Indirizzo deve esser tra 4 e 30 caratteri") String indirizzo,
 			@Min(16) @Max(100) int eta) {
-		super();
 		this.username = username;
 		this.password = password;
 		this.datanascita = datanascita;
@@ -78,71 +94,111 @@ public class Utente {
 	}
 	
 	
+
 	public Utente() {
 		
 	}
 
 
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public Date getDatanascita() {
 		return datanascita;
 	}
+
 	public void setDatanascita(Date datanascita) {
 		this.datanascita = datanascita;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getNumerotelefono() {
 		return numerotelefono;
 	}
+
 	public void setNumerotelefono(String numerotelefono) {
 		this.numerotelefono = numerotelefono;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getCognome() {
 		return cognome;
 	}
+
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
+
 	public String getCittaresidenza() {
 		return cittaresidenza;
 	}
+
 	public void setCittaresidenza(String cittaresidenza) {
 		this.cittaresidenza = cittaresidenza;
 	}
+
 	public String getIndirizzo() {
 		return indirizzo;
 	}
+
 	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
 	}
+
 	public int getEta() {
 		return eta;
 	}
+
 	public void setEta(int eta) {
 		this.eta = eta;
 	}
+
+	public Set<PrenotazioneForm> getPrenotazione() {
+		return prenotazione;
+	}
+
+	public void setPrenotazione(Set<PrenotazioneForm> prenotazione) {
+		this.prenotazione = prenotazione;
+	}
+
+	public Squadra getSquadra() {
+		return squadra;
+	}
+
+	public void setSquadra(Squadra squadra) {
+		this.squadra = squadra;
+	}
+	
+	
+	
 	
 	
 

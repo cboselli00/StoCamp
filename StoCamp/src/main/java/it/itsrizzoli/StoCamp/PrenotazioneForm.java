@@ -1,7 +1,7 @@
 package it.itsrizzoli.StoCamp;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,28 +23,49 @@ public class PrenotazioneForm {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	Integer id;
+	
 	Date data;
 	
-	/*@OneToMany(mappedBy = "prenota",cascade = CascadeType.ALL)
-	Utente utente;
-	@OneToMany(mappedBy = "prenota",cascade = CascadeType.ALL)
-	Campo campo;*/
+	@ManyToOne
+	@JoinColumn
+	private Utente partecipante;
 	
+	@ManyToOne
+	@JoinColumn
+	private Campo campo;
 	double orainizio;
 	double orafine;
 	
+	
+	public PrenotazioneForm() {
+		
+	}
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Date getData() {
 		return data;
 	}
 	public void setData(Date data) {
 		this.data = data;
 	}
-	/*public Utente getUtente() {
-		return utente;
+	public Utente getPartecipante() {
+		return partecipante;
 	}
-	public void setUtente(Utente utente) {
-		this.utente = utente;
-	}*/
+	public void setPartecipante(Utente partecipante) {
+		this.partecipante = partecipante;
+	}
+	public Campo getCampo() {
+		return campo;
+	}
+	public void setCampo(Campo campo) {
+		this.campo = campo;
+	}
 	public double getOrainizio() {
 		return orainizio;
 	}
@@ -57,18 +78,12 @@ public class PrenotazioneForm {
 	public void setOrafine(double orafine) {
 		this.orafine = orafine;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	/*public Campo getCampo() {
-		return campo;
-	}
-	public void setCampo(Campo campo) {
-		this.campo = campo;
-	}*/
+	
+	
+	
+	
+	
+	
 	
 	
 	
