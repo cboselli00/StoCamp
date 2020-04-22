@@ -1,6 +1,7 @@
 package it.itsrizzoli.StoCamp;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -25,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private CampoDao campoRepository;
+	
+	@Autowired
+    CampoJdbcDao campoJdbcRepository;
 	
 	@GetMapping("/Notifiche")
 	public ModelAndView notifiche(HttpSession session) {
@@ -59,11 +63,23 @@ public class HomeController {
 	@GetMapping("/Prenotazione")
 	public ModelAndView prenotazione(PrenotazioneForm prenotazioneForm,HttpSession session) {
 	Utente u = (Utente)session.getAttribute("loggedUser");
+	List<Campo> listaCampi = campoJdbcRepository.listaCampi();
+	Campo c1 = listaCampi.get(0);
+	Campo c2 = listaCampi.get(1);
+	Campo c3 = listaCampi.get(2);
+	Campo c4 = listaCampi.get(3);
+	Campo c5 = listaCampi.get(4);
 		
 		ModelAndView mav = new ModelAndView();
 
 		if (u != null) {
 			mav.setViewName("Prenotazione");
+			mav.addObject("campo1", c1);
+			mav.addObject("campo2", c2);
+			mav.addObject("campo3", c3);
+			mav.addObject("campo4", c4);
+			mav.addObject("campo5", c5);
+			
 		}
 		else {
 			mav.setViewName("redirect:/login");			
@@ -78,9 +94,9 @@ public class HomeController {
         }
 		Utente u = (Utente)session.getAttribute("loggedUser");
 		Campo c = (Campo)session.getAttribute("campo");
-		Date data = (Date)session.getAttribute("data");
-		double orainizio = (double)session.getAttribute("orainizio");
-		double orafine = (double)session.getAttribute("orafine");
+		Date data = prenotazioneForm.data;
+		double orainizio = prenotazioneForm.orainizio;
+		double orafine = prenotazioneForm.orafine;
 		
 		prenotazioneForm.setPartecipante(u);
 		prenotazioneForm.setCampo(c);

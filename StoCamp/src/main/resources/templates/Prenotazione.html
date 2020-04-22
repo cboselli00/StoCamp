@@ -16,9 +16,11 @@
         <h3>Seleziona campo</h3>
             <select name="campo" th:value="${prenotazioneForm.campo}">
                 <option>Seleziona campo da gioco</option>
-                <option>Campo1</option>
-                <option>Campo2</option>
-                <option>Campo3</option>
+                <option><label th:text="*{campo1.nome}"/></option>
+                <option><label th:text="*{campo2.nome}"/></option>
+                <option><label th:text="*{campo3.nome}"/></option>
+                <option><label th:text="*{campo4.nome}"/></option>
+                <option><label th:text="*{campo5.nome}"/></option>
             </select>
         </div>
         <div class="col-sm-4" id="data"><h3>Seleziona data</h3>

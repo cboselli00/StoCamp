@@ -18,8 +18,8 @@ import javax.validation.constraints.Size;
 public class Campo {
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-	int id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	int Id;
 	
 	@Size(min=4, max=30, message = "Nome deve esser tra 4 e 30 caratteri")
     @NotNull(message = "Nome deve esser inserito")
@@ -36,20 +36,9 @@ public class Campo {
 	public Campo(int id,
 			@Size(min = 4, max = 30, message = "Nome deve esser tra 4 e 30 caratteri") @NotNull(message = "Nome deve esser inserito") String nome,
 			@Size(min = 4, max = 30, message = "Indirizzo deve esser tra 4 e 15 caratteri") @NotNull(message = "Indirizzo deve esser inserito") String indirizzo) {
-		super();
-		this.id = id;
+		Id = id;
 		this.nome = nome;
 		this.indirizzo = indirizzo;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 
@@ -81,6 +70,18 @@ public class Campo {
 	public void setPrenotazione(Set<PrenotazioneForm> prenotazione) {
 		this.prenotazione = prenotazione;
 	}
+
+
+	public int getId() {
+		return Id;
+	}
+
+
+	public void setId(int id) {
+		Id = id;
+	}
+	
+	
 	
 	
 	

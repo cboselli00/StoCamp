@@ -33,6 +33,8 @@ public class PrenotazioneForm {
 	@ManyToOne
 	@JoinColumn
 	private Campo campo;
+	
+	
 	double orainizio;
 	double orafine;
 	
@@ -60,12 +62,17 @@ public class PrenotazioneForm {
 	public void setPartecipante(Utente partecipante) {
 		this.partecipante = partecipante;
 	}
+	
 	public Campo getCampo() {
 		return campo;
 	}
+
+
 	public void setCampo(Campo campo) {
 		this.campo = campo;
 	}
+
+
 	public double getOrainizio() {
 		return orainizio;
 	}
