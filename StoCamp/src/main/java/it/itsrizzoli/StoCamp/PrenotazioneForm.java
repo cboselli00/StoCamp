@@ -31,12 +31,11 @@ public class PrenotazioneForm {
 	@JoinColumn
 	private Utente partecipante;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn
-	private Campo campo;
+	private Campo campo;*/
 	
-	/*@NotNull
-	int campo_id;*/
+	String nomecampo;
 	
 	
 	double orainizio;
@@ -66,13 +65,13 @@ public class PrenotazioneForm {
 		this.partecipante = partecipante;
 	}
 	
-	public Campo getCampo() {
+	/*public Campo getCampo() {
 		return campo;
 	}
 
 	public void setCampo(Campo campo) {
 		this.campo = campo;
-	}
+	}*/
 
 
 	public double getOrainizio() {
@@ -89,14 +88,14 @@ public class PrenotazioneForm {
 	}
 
 
-	/*public int getCampo_id() {
-		return campo_id;
+	public String getNomecampo() {
+		return nomecampo;
 	}
 
 
-	public void setCampo_id(int campo_id) {
-		this.campo_id = campo_id;
-	}*/
+	public void setNomecampo(String nomecampo) {
+		this.nomecampo = nomecampo;
+	}
 	
 	
 	

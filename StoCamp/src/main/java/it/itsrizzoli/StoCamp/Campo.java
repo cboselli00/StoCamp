@@ -17,10 +17,11 @@ import javax.validation.constraints.Size;
 @Table(name = "campo")
 public class Campo {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	int Id;
 	
+	/*@GeneratedValue(strategy=GenerationType.AUTO)
+	int Id;*/
+	
+	@Id
 	@Size(min=4, max=30, message = "Nome deve esser tra 4 e 30 caratteri")
     @NotNull(message = "Nome deve esser inserito")
 	String nome;
@@ -29,14 +30,14 @@ public class Campo {
     @NotNull(message = "Indirizzo deve esser inserito")
 	String indirizzo;
 	
-	@OneToMany(mappedBy = "campo", cascade = CascadeType.ALL)
-	private Set<PrenotazioneForm> prenotazione = new HashSet<>();
+	/*@OneToMany(mappedBy = "campo", cascade = CascadeType.ALL)
+	private Set<PrenotazioneForm> prenotazione = new HashSet<>();*/
 	
 	
-	public Campo(int id,
+	public Campo(/*int id,*/
 			@Size(min = 4, max = 30, message = "Nome deve esser tra 4 e 30 caratteri") @NotNull(message = "Nome deve esser inserito") String nome,
 			@Size(min = 4, max = 30, message = "Indirizzo deve esser tra 4 e 15 caratteri") @NotNull(message = "Indirizzo deve esser inserito") String indirizzo) {
-		Id = id;
+		//Id = id;
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 	}
@@ -71,17 +72,17 @@ public class Campo {
 	}
 
 
-	public Set<PrenotazioneForm> getPrenotazione() {
+	/*public Set<PrenotazioneForm> getPrenotazione() {
 		return prenotazione;
 	}
 
 
 	public void setPrenotazione(Set<PrenotazioneForm> prenotazione) {
 		this.prenotazione = prenotazione;
-	}
+	}*/
 
 
-	public int getId() {
+	/*public int getId() {
 		return Id;
 	}
 
@@ -89,7 +90,7 @@ public class Campo {
 	public void setId(int id) {
 		Id = id;
 	}
-	
+	*/
 	
 	
 	

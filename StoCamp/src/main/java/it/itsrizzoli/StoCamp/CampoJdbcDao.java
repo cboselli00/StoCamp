@@ -18,7 +18,6 @@ public class CampoJdbcDao {
                 new Object[]{},
                 (rs, rowNum) ->
                         new Campo(
-                        		rs.getInt("id"),
                                 rs.getString("nome"),
                                 rs.getString("indirizzo") 
         ));

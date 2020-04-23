@@ -12,19 +12,19 @@
 <body id="body">
     <br><br><br>
     <div class="row">
+    <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}"> 
         <div class="col-sm-4" id="selezione">
         <h3>Seleziona campo</h3>
-            <select name="campo" th:value="${prenotazioneForm.campo}">
+            <select name="nomecampo" th:value="${prenotazioneForm.nomecampo}">
                 <option>Seleziona campo da gioco</option>
-                <option><label th:text="*{campo1.nome}"/></option>
-                <option><label th:text="*{campo2.nome}"/></option>
-                <option><label th:text="*{campo3.nome}"/></option>
-                <option><label th:text="*{campo4.nome}"/></option>
-                <option><label th:text="*{campo5.nome}"/></option>
+                <option>Old Trafford</option>
+                <option>Rubentus Stadium</option>
+                <option>San Paolo</option>
+                <option>San Siro</option>
+                <option>Santiago Bernabeu</option>
             </select>
         </div>
         <div class="col-sm-4" id="data"><h3>Seleziona data</h3>
-        <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}">
         <input type="date" th:field="*{data}">
         <p th:if="${#fields.hasErrors('data')}" th:errors="*{data}" /></div>
         <div class="col-sm-4" id="orario">
@@ -48,12 +48,11 @@
                 <option value="14.00">14.00</option>
             </select>
         </div>
-      </div> 
+      	</div>
       <br><br>
 </body>
 <footer id="footer">
-    <input type="submit" value="Prenota">
-    <button><a href="/Home">Home</a></button>
-   	</form>
+<input type="submit" value="Prenota">
+<button><a href="/Home">Home</a></button>
 </footer>
 </html>
