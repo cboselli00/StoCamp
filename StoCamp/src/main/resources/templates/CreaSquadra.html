@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>CREA SQUADRA</h1>
- 		<form id="creasquadra" method="post" th:action="@{/CreaSquadra}"  th:object="${creaSquadraForm}">
-            Nome squadra:<input type="text" name="nomesquadra" th:field="*{nome}"><br><br>
+ 		<form method="post" th:action="@{/CreaSquadra}"  th:object="${creaSquadraForm}">
+            Nome squadra:<input type="text" name="nome" th:field="*{nome}"><br><br>
              <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"/>
             Partecipante:<input type="text" name="partecipante" th:field="*{partecipante1}"><br><br>
              <p th:if="${#fields.hasErrors('partecipante1')}" th:errors="*{partecipante1}"/>

@@ -29,6 +29,14 @@ ul {
     margin-top: 10px;
 }
 #evento1{
+   border-style: solid;
+}
+
+#evento2{
+    border-style: solid;
+}
+
+#evento3{
     border-style: solid;
 }
 

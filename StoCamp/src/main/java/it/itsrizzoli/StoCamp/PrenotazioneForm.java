@@ -23,7 +23,7 @@ import javax.validation.constraints.NotNull;
 public class PrenotazioneForm {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	Integer id;
+	int id;
 	
 	Date data;
 	
@@ -41,15 +41,24 @@ public class PrenotazioneForm {
 	double orainizio;
 	double orafine;
 	
+	public PrenotazioneForm(int id, Date data,String nomecampo, double orainizio,
+			double orafine) {
+		this.id = id;
+		this.data = data;
+		this.nomecampo = nomecampo;
+		this.orainizio = orainizio;
+		this.orafine = orafine;
+	}
+	
 	public PrenotazioneForm() {
 		
 	}
 	
-	
-	public Integer getId() {
+
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public Date getData() {

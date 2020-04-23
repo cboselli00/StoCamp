@@ -1,4 +1,4 @@
-package it.itsrizzoli.StoCamp;
+/*package it.itsrizzoli.StoCamp;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +8,8 @@ public class PrenotaController {
 	
 	@GetMapping("/Home")
 	public String Home(PrenotazioneForm prenotazioneForm) {
-		return "Home";
+		return "redirect:/Home";
 	}
 
 	
-}
+}*/

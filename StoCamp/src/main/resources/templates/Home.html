@@ -18,25 +18,33 @@
       <div class="row">
         <div class="col-sm-4">
             <p><b>Eventi disponibili</b></p>
-            <p id="evento1">
-                San Siro<br>
-                10/04/2020 17:00<br>
-                Piazzale Angelo Moratti<br>
-                <input type="button" id="dettagli" name="bottone" value="Dettagli">
+            <script>
+            function funzionedettaglio1() {
+            	document.getElementById("evento1").innerHTML += "Via ladroni 30" ;
+            	}
+            function funzionedettaglio2() {
+            	document.getElementById("evento2").innerHTML += "Via Manchester 11" ;
+            	}
+            function funzionedettaglio3() {
+            	document.getElementById("evento3").innerHTML += "Via Napoli 33" ;
+            	}
+            </script>
+            <p id="evento1" >
+                <label th:text="*{prenotazione1.nomecampo}"/><br>
+                <label th:text="*{prenotazione1.data}"/>&nbsp;&nbsp;Ora inizio:&nbsp;<label th:text="*{prenotazione1.orainizio}"/>&nbsp;&nbsp;Ora fine:&nbsp;<label th:text="*{prenotazione1.orafine}"/><br>
+                <input type="button" id="dettagli" name="bottone" value="Dettagli" onclick="funzionedettaglio1()">
             </p>
             <br>
-            <p id="evento1">
-                San Paolo<br>
-                25/05/2020 10:00<br>
-                Piazzale Vincenzo Tecchio<br>
-                <input type="button" id="dettagli" name="bottone" value="Dettagli">
+            <p id="evento2">
+                <label th:text="*{prenotazione2.nomecampo}"/><br>
+                <label th:text="*{prenotazione2.data}"/>&nbsp;&nbsp;Ora inizio:&nbsp;<label th:text="*{prenotazione2.orainizio}"/>&nbsp;&nbsp;Ora fine:&nbsp;<label th:text="*{prenotazione2.orafine}"/><br>
+                <input type="button" id="dettagli" name="bottone" value="Dettagli" onclick="funzionedettaglio2()">
             </p>
             <br>
-            <p id="evento1">
-                Allianz Stadium<br>
-                8/08/2020 14:00<br>
-                Piazza la bomba e scappa<br>
-                <input type="button" id="dettagli" name="bottone" value="Dettagli">
+            <p id="evento3">
+               <label th:text="*{prenotazione3.nomecampo}"/><br>
+                <label th:text="*{prenotazione3.data}"/>&nbsp;&nbsp;Ora inizio:&nbsp;<label th:text="*{prenotazione3.orainizio}"/>&nbsp;&nbsp;Ora fine:&nbsp;<label th:text="*{prenotazione3.orafine}"/><br>
+                <input type="button" id="dettagli" name="bottone" value="Dettagli" onclick="funzionedettaglio3()">
             </p>
         </div>
         <div class="col-sm-4">

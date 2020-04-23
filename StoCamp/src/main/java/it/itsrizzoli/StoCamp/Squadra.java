@@ -13,8 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "squadra")
+
 public class Squadra {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,11 +23,22 @@ public class Squadra {
 	@NotNull(message = "Nome deve esser inserito")
 	String nome;
 	
-	@OneToMany(mappedBy = "squadra", cascade = CascadeType.ALL)
-	private Set<Partecipazione> partecipa = new HashSet<>();
-
+	@Size(min=4, max=15, message = "Il nome del partecipante deve esser tra 5 e 15 caratteri")
+    @NotNull(message = "Il nome del partecipante deve esser inserito")
+	String partecipante1;
+	@Size(min=4, max=15, message = "Il nome del partecipante deve esser tra 5 e 15 caratteri")
+    @NotNull(message = "Il nome del partecipante deve esser inserito")
+	String partecipante2;
+	@Size(min=4, max=15, message = "Il nome del partecipante deve esser tra 5 e 15 caratteri")
+    @NotNull(message = "Il nome del partecipante deve esser inserito")
+	String partecipante3;
+	@Size(min=4, max=15, message = "Il nome del partecipante deve esser tra 5 e 15 caratteri")
+    @NotNull(message = "Il nome del partecipante deve esser inserito")
+	String partecipante4;
+	
+	
 	public Squadra() {
-		super();
+		
 	}
 
 	public int getId() {
@@ -47,12 +57,37 @@ public class Squadra {
 		this.nome = nome;
 	}
 
-	public Set<Partecipazione> getPartecipa() {
-		return partecipa;
+	
+	public String getPartecipante1() {
+		return partecipante1;
 	}
 
-	public void setPartecipa(Set<Partecipazione> partecipa) {
-		this.partecipa = partecipa;
+	public void setPartecipante1(String partecipante1) {
+		this.partecipante1 = partecipante1;
+	}
+
+	public String getPartecipante2() {
+		return partecipante2;
+	}
+
+	public void setPartecipante2(String partecipante2) {
+		this.partecipante2 = partecipante2;
+	}
+
+	public String getPartecipante3() {
+		return partecipante3;
+	}
+
+	public void setPartecipante3(String partecipante3) {
+		this.partecipante3 = partecipante3;
+	}
+
+	public String getPartecipante4() {
+		return partecipante4;
+	}
+
+	public void setPartecipante4(String partecipante4) {
+		this.partecipante4 = partecipante4;
 	}
 	
 	

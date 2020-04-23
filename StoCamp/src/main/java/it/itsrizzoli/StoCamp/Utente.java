@@ -64,7 +64,7 @@ public class Utente {
 
 	
 	@OneToOne
-	private Squadra squadra;
+	private CreaSquadraForm squadra;
 	
 	
 	
@@ -189,13 +189,19 @@ public class Utente {
 		this.prenotazione = prenotazione;
 	}
 
-	public Squadra getSquadra() {
+
+
+	public CreaSquadraForm getSquadra() {
 		return squadra;
 	}
 
-	public void setSquadra(Squadra squadra) {
+
+
+	public void setSquadra(CreaSquadraForm squadra) {
 		this.squadra = squadra;
 	}
+
+	
 	
 	
 	

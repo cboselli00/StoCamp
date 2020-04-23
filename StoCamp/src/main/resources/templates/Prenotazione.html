@@ -12,7 +12,7 @@
 <body id="body">
     <br><br><br>
     <div class="row">
-    <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}"> 
+     <form method="post" th:action="@{/Prenotazione}" th:object="${prenotazioneForm}"> 
         <div class="col-sm-4" id="selezione">
         <h3>Seleziona campo</h3>
             <select name="nomecampo" th:value="${prenotazioneForm.nomecampo}">

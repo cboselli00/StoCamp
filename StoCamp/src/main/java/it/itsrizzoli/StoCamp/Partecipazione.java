@@ -18,7 +18,7 @@ public class Partecipazione {
 	
 	@ManyToOne
 	@JoinColumn
-	private Squadra squadra;
+	private CreaSquadraForm squadra;
 	
 	@ManyToOne
 	@JoinColumn
@@ -36,11 +36,12 @@ public class Partecipazione {
 		this.id = id;
 	}
 
-	public Squadra getSquadra() {
+	
+	public CreaSquadraForm getSquadra() {
 		return squadra;
 	}
 
-	public void setSquadra(Squadra squadra) {
+	public void setSquadra(CreaSquadraForm squadra) {
 		this.squadra = squadra;
 	}
 

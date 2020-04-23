@@ -18,9 +18,10 @@ import it.itsrizzoli.StoCamp.UtenteController;
 
 @Controller
 public class HomeController {
-	/*@Autowired
-	private SquadraDao squadraRepository;*/
 	
+	@Autowired
+	private SquadraDao squadraRepository;
+
 	@Autowired
 	private PrenotaDao prenotaRepository;
 	
@@ -29,6 +30,9 @@ public class HomeController {
 	
 	@Autowired
     CampoJdbcDao campoJdbcRepository;
+	
+	@Autowired
+	PrenotaJdbcDao JdbcRepository;
 	
 	@GetMapping("/Notifiche")
 	public ModelAndView notifiche(HttpSession session) {
@@ -125,8 +129,8 @@ public class HomeController {
 		return mav;
 	}
 	
-	/*@GetMapping("/CreaSquadra")
-	public ModelAndView creasquadra(HttpSession session) {
+	@GetMapping("/CreaSquadra")
+	public ModelAndView creasquadra(HttpSession session, CreaSquadraForm creaSquadraForm) {
 		Utente u = (Utente)session.getAttribute("loggedUser");
 		
 		ModelAndView mav = new ModelAndView();
@@ -141,14 +145,50 @@ public class HomeController {
 	}
 	
 	@PostMapping("/CreaSquadra")
-	public String creasquadra(@Valid CreaSquadraForm creaSquadraForm, BindingResult results) {
-		if(results.hasErrors()){
-            return "CreaSquadra";
-        }
-		Squadra s = new Squadra();
-		s.setNome(creaSquadraForm.getNome());
-		squadraRepository.save(s);
+	public String creazionesquadra(@Valid CreaSquadraForm creaSquadraForm, BindingResult results) {
+		if(results.hasErrors()) {
+			return "CreaSquadra";
+		}
+		String nome = creaSquadraForm.nome;
+		String partecipante1=creaSquadraForm.partecipante1;
+		String partecipante2=creaSquadraForm.partecipante2;
+		String partecipante3=creaSquadraForm.partecipante3;
+		String partecipante4=creaSquadraForm.partecipante4;
 		
-		return "redirect:/Home";	
-	}	*/
+		creaSquadraForm.setNome(nome);
+		creaSquadraForm.setPartecipante1(partecipante1);
+		creaSquadraForm.setPartecipante2(partecipante2);
+		creaSquadraForm.setPartecipante3(partecipante3);
+		creaSquadraForm.setPartecipante4(partecipante4);
+		squadraRepository.save(creaSquadraForm);
+		
+		return "redirect:/Home";
+	}
+	
+	
+	@GetMapping("/Home")
+	public ModelAndView homepage(HttpSession session) {
+		Utente u = (Utente)session.getAttribute("loggedUser");
+		List<PrenotazioneForm> listaPrenotazioni = JdbcRepository.listaPrenotazioni();
+		PrenotazioneForm pf1 = listaPrenotazioni.get(0);
+		PrenotazioneForm pf2 = listaPrenotazioni.get(1);
+		PrenotazioneForm pf3 = listaPrenotazioni.get(2);
+		PrenotazioneForm pf4 = listaPrenotazioni.get(3);
+		ModelAndView mav = new ModelAndView();
+
+		if (u != null) {
+			mav.setViewName("Home");
+			mav.addObject("prenotazione1", pf1);
+			mav.addObject("prenotazione2", pf2);
+			mav.addObject("prenotazione3", pf3);
+			mav.addObject("prenotazione4", pf4);
+		}
+		else {
+			mav.setViewName("redirect:/login");			
+		}
+		return mav;
+	}
+	
+	 
+		
 }
