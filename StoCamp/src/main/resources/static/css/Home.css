@@ -44,10 +44,6 @@ ul {
     background-color: #f0e68c;
 }
 
-#evento{
-    border-style: solid;
-}
-
 #mappa{
     width: 100px;
     height: 96px;
@@ -60,6 +56,9 @@ ul {
     border-style: solid;
 }
 
+#evento{
+	background-color: #f0e68c;
+}
 
   
   

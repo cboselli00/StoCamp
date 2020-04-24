@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Creato il: Apr 23, 2020 alle 17:29
+-- Creato il: Apr 24, 2020 alle 09:04
 -- Versione del server: 8.0.18
 -- Versione PHP: 7.3.12
 
@@ -75,11 +75,11 @@ CREATE TABLE IF NOT EXISTS `hibernate_sequence` (
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(22),
-(22),
-(22),
-(22),
-(22);
+(23),
+(23),
+(23),
+(23),
+(23);
 
 -- --------------------------------------------------------
 
@@ -145,14 +145,15 @@ CREATE TABLE IF NOT EXISTS `squadra` (
   KEY `partecipante2` (`partecipante2`),
   KEY `partecipante3` (`partecipante3`),
   KEY `partecipante4` (`partecipante4`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dump dei dati per la tabella `squadra`
 --
 
 INSERT INTO `squadra` (`id`, `nome`, `partecipante1`, `partecipante2`, `partecipante3`, `partecipante4`) VALUES
-(21, 'Scarsenal', 'Boselli00', 'AleCriscu', 'Negri00', 'VanBasty');
+(21, 'Scarsenal', 'Boselli00', 'AleCriscu', 'Negri00', 'VanBasty'),
+(22, 'Ac Picchia', 'tizicrudeli', 'carletto', 'redmario', 'tramonto');
 
 -- --------------------------------------------------------
 
@@ -184,7 +185,11 @@ CREATE TABLE IF NOT EXISTS `utente` (
 INSERT INTO `utente` (`username`, `cittaresidenza`, `cognome`, `datanascita`, `email`, `eta`, `indirizzo`, `nome`, `numerotelefono`, `password`, `squadra_id`) VALUES
 ('AleCriscu', 'Cinisello Balsamo ', 'Criscuoli', '2000-12-27', 'alessandro.criscuoli@eng.it', 19, 'Via benagol 15', 'Alessandro', '1234567891', 'alessandro', NULL),
 ('Boselli00', 'Milano', 'Boselli', '2000-06-26', 'bosellichristian@gmail.com', 19, 'Via Scheiwiller 12', 'Christian', '3273168034', 'cippirimerlo', NULL),
+('carletto', 'Milano', 'Pellegatti', '1950-04-11', 'pellegatti.carlo@gmail.com', 70, 'Via Milan 125', 'Carlo', '3273168037', 'sempremilan', NULL),
 ('Negri00', 'Lacchiarella', 'Negri', '2000-07-03', 'marco.negri@eng.it', 19, 'Via Turati 7', 'Marco', '3924074436', 'password', NULL),
+('redmario', 'Roma', 'Rossi', '1986-12-25', 'mario.rossi@gmail.com', 33, 'Via Colosseo 18', 'Mario', '3314678912', 'ciaociao', NULL),
+('tizicrudeli', 'Forli', 'Crudeli', '1943-06-24', 'crudeli.tiziano@gmail.com', 76, 'Via forzamilan 120', 'Tiziano', '3273168035', 'dimenticata', NULL),
+('tramonto', 'Milano', 'Tramontana', '1979-03-25', 'tramontana.filippo@gmail.com', 41, 'Via internazionale 15', 'Filippo', '3273168036', 'interschifo', NULL),
 ('VanBasty', 'Amsterdam', 'Van Basten', '1964-12-10', 'marco.vanbasten@milan.it', 56, 'Via ajax 9', 'Marco', '1122334455', 'acmilan', NULL);
 
 --
