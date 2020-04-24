@@ -38,9 +38,27 @@ public class CreaSquadraForm {
 	@OneToMany(mappedBy = "squadra", cascade = CascadeType.ALL)
 	private Set<Partecipazione> partecipa = new HashSet<>();
 
-
 	
 	
+	
+	public CreaSquadraForm() {
+		
+	}
+	
+	public CreaSquadraForm(int id,
+			@Size(min = 3, max = 30, message = "Nome deve esser tra 5 e 30 caratteri") @NotNull(message = "Nome deve esser inserito") String nome,
+			@Size(min = 4, max = 15, message = "Username partecipante deve esser tra 5 e 15 caratteri") String partecipante1,
+			@Size(min = 4, max = 15, message = "Username partecipante deve esser tra 5 e 15 caratteri") String partecipante2,
+			@Size(min = 4, max = 15, message = "Username partecipante deve esser tra 5 e 15 caratteri") String partecipante3,
+			@Size(min = 4, max = 15, message = "Username partecipante deve esser tra 5 e 15 caratteri") String partecipante4) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.partecipante1 = partecipante1;
+		this.partecipante2 = partecipante2;
+		this.partecipante3 = partecipante3;
+		this.partecipante4 = partecipante4;
+	}
 	public int getId() {
 		return id;
 	}

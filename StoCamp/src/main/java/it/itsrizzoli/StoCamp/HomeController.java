@@ -26,13 +26,13 @@ public class HomeController {
 	private PrenotaDao prenotaRepository;
 	
 	@Autowired
-	private CampoDao campoRepository;
-	
-	@Autowired
     CampoJdbcDao campoJdbcRepository;
 	
 	@Autowired
-	PrenotaJdbcDao JdbcRepository;
+	PrenotaJdbcDao prenotaJdbcRepository;
+	
+	@Autowired
+	SquadraJdbcDao squadraJdbcRepository;
 	
 	@GetMapping("/Notifiche")
 	public ModelAndView notifiche(HttpSession session) {
@@ -169,11 +169,13 @@ public class HomeController {
 	@GetMapping("/Home")
 	public ModelAndView homepage(HttpSession session) {
 		Utente u = (Utente)session.getAttribute("loggedUser");
-		List<PrenotazioneForm> listaPrenotazioni = JdbcRepository.listaPrenotazioni();
+		List<PrenotazioneForm> listaPrenotazioni = prenotaJdbcRepository.listaPrenotazioni();
 		PrenotazioneForm pf1 = listaPrenotazioni.get(0);
 		PrenotazioneForm pf2 = listaPrenotazioni.get(1);
 		PrenotazioneForm pf3 = listaPrenotazioni.get(2);
 		PrenotazioneForm pf4 = listaPrenotazioni.get(3);
+		List<CreaSquadraForm> listaSquadre = squadraJdbcRepository.listaSquadre();
+		CreaSquadraForm csf = new CreaSquadraForm();
 		ModelAndView mav = new ModelAndView();
 
 		if (u != null) {
@@ -182,6 +184,18 @@ public class HomeController {
 			mav.addObject("prenotazione2", pf2);
 			mav.addObject("prenotazione3", pf3);
 			mav.addObject("prenotazione4", pf4);
+			for(int i=0;i<listaSquadre.size();i++) {
+				if(u.getUsername().equals(listaSquadre.get(i).partecipante1) || u.getUsername().equals(listaSquadre.get(i).partecipante2)
+					|| u.getUsername().equals(listaSquadre.get(i).partecipante3) || u.getUsername().equals(listaSquadre.get(i).partecipante4)) {
+					csf.setId(listaSquadre.get(i).getId());
+					csf.setNome(listaSquadre.get(i).getNome());
+					csf.setPartecipante1(listaSquadre.get(i).getPartecipante1());
+					csf.setPartecipante2(listaSquadre.get(i).getPartecipante2());
+					csf.setPartecipante3(listaSquadre.get(i).getPartecipante3());
+					csf.setPartecipante4(listaSquadre.get(i).getPartecipante4());
+				}
+			}
+			mav.addObject("squadra",csf);
 		}
 		else {
 			mav.setViewName("redirect:/login");			

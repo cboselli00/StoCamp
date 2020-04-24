@@ -60,10 +60,11 @@
         <div class="col-sm-4">
             <p><b>La tua squadra</b></p>
             <p id="squadra">
-                <b>Scarsenal</b><br>
-                Christian Boselli(Amministratore)<br>
-                Alessandro Criscuoli<br>
-                Marco Negri<br>
+                <b><label th:text="*{squadra.nome}"/></b><br>
+                <label th:text="*{squadra.partecipante1}"/><br>
+                <label th:text="*{squadra.partecipante2}"/><br>
+                <label th:text="*{squadra.partecipante3}"/><br>
+                <label th:text="*{squadra.partecipante4}"/><br>
                 <input type="button" id="aggiungi" name="aggiungi" value="Aggiungi membro">
             </p>
             <button><a href="/CreaSquadra">Crea squadra</a></button>
